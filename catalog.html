@@ -50,8 +50,64 @@
       <section class="filters">
         <h2 class="filters__title">Фильтр:</h2>
 
-        <!-- form -->
-      </section>
+        <form>
+          
+          <section class="filters__price">
+            <hr> <!-- hr to ==> border-top -->
+            <h3 class="filters-title">Стоимость</h3>
+            <input class="filters-price__range" id="range" name="price" type="range">
+          </section>
+
+          <section class="filters__color">
+            <hr> <!-- hr to ==> border-top -->
+            <h3 class="filters-title">Цвет</h3>
+
+            <p>
+              <input class="filters-price__range" id="color-black" type="checkbox" name="color" value="black" checked>
+              <label class="filters-label" for="color-black">Черный</label>
+            </p>
+
+            <p>
+              <input class="filters-price__range" id="color-white" type="checkbox" name="color" value="white">
+              <label class="filters-label" for="color-white">Белый</label>
+            </p>
+
+            <p> 
+              <input class="filters-price__range" id="color-blue" type="checkbox" name="color" value="blue" checked>
+              <label class="filters-label" for="color-blue">Синий</label>
+            </p>
+
+            <p>
+              <input class="filters-price__range" id="color-red" type="checkbox" name="color" value="red" checked>
+              <label class="filters-label" for="color-red">Красный</label>
+            </p>
+
+            <p>
+              <input class="filters-price__range" id="color-pink" type="checkbox" name="color" value="pink">
+              <label class="filters-label" for="color-pink">pink</label>
+            </p>
+
+          </section>
+
+          <section class="filters__color">
+            <hr> <!-- hr to ==> border-top -->
+            <h3 class="filters-title">Bluetooth</h3>
+
+            <p>
+              <input type="radio" name="bluetooth" id="bluetooth-true" value="true" checked>
+              <label for="bluetooth-true">Есть</label>
+            </p>
+
+              <p>
+              <input type="radio" name="bluetooth" id="bluetooth-false" value="false">
+              <label for="bluetooth-false">Нет</label>
+            </p>
+          </section>
+
+          <button class="btn" type="submit">Показать</button>
+
+        </form>
+      </section> <!-- /.filters -->
 
       <section class="content">
 
