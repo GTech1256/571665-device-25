@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>HTML Academy: Девайс</title>
+    <title>Каталог | HTML Academy: Девайс</title>
   </head>
   <body>
     <header class="page-header">
@@ -25,6 +25,71 @@
       </nav>
     </header>
     <main>
+      <h1>Моноподы для селфи</h1>
+
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Главная</a></li>
+        <li><a class="breadcrumbs_current">Каталог товаров</a></li>
+        <li><a class="breadcrumbs_current">Моноподы для селфи</a></li>
+      </ul>
+
+      <section class="sort">
+        <h2 class="sort__title">
+          Сортировка:
+        </h2>
+        <span class="sort__type sort__type_active">По цене</span>
+        <span class="sort__type">По типу</span>
+        <span class="sort__type">По популярности</span>
+
+        <div class="sort__action">
+          <span class="sort-action__arrow sort-action__arrow_up"></span>
+          <span class="sort-action__arrow sort-action__arrow_down sort-action__arrow_active"></span>
+        </div>
+      </section>
+
+      <section class="filters">
+        <h2 class="filters__title">Фильтр:</h2>
+
+        <!-- form -->
+      </section>
+
+      <section class="content">
+
+        <h2 class="visually-hidden">
+          Список моноподов для селфи
+        </h2>
+
+        <ul class="content__list">
+          <li class="content__item">
+            <img src="img/catalog/item-1.jpg" alt="Любительская селфи-палка" width="360" height="380">
+            <h3 class="content-item__title">Любительская селфи-палка</h3>
+            <span class="content-item__price">500 руб.</span>
+          </li>
+          <li class="content__item">
+            <img src="img/catalog/item-2.jpg" alt="Профессиональная селфи-палка" width="360" height="380">
+            <h3 class="content-item__title">Профессиональная селфи-палка</h3>
+            <span class="content-item__price">1 500 руб.</span>
+          </li>
+          <li class="content__item">
+            <img src="img/catalog/item-3.jpg" alt="Непотопляемая селфи-палка" width="360" height="380">
+            <h3 class="content-item__title">Непотопляемая селфи-палка</h3>
+            <span class="content-item__price">2 500 руб.</span>
+          </li>
+          <li class="content__item">
+            <img src="img/catalog/item-4.jpg" alt="Селфи-палка «Следуй за мной»" width="360" height="380">
+            <h3 class="content-item__title">Селфи-палка «Следуй за мной»</h3>
+            <span class="content-item__price">4 900 руб.</span>
+          </li>
+        </ul>
+      </section>
+
+      <nav class="pagination">
+        <a class="pagination__link pagination__link_left" href="#">Назад</a>
+        <a class="pagination__link" href="#">1</a>
+        <a class="pagination__link pagination__link_unacrive" href="#">2</a>
+        <a class="pagination__link pagination__link_unacrive" href="#">3</a>
+        <a class="pagination__link pagination__link_right" href="#">Вперед</a>
+      </nav>
 
     </main>
     <footer class="page-footer">
