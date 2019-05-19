@@ -8,7 +8,7 @@
     <header class="page-header">
       <div class="page-header-wrapper">
         <a href="index.html">
-          <img class="page-header__logo" src="img/logo.svg" alt="logo" width="163" height="35">
+          <img class="page-header__logo" src="img/logo.svg" alt="Логотип магазина «Device»" width="163" height="35">
         </a>
 
         <nav class="page-header__second-nav">
@@ -69,7 +69,11 @@
           <section class="filters__price">
             <hr> <!-- hr to ==> border-top -->
             <h3 class="filters-title">Стоимость</h3>
-            <input class="filters-price__range" id="range" name="price" type="range">
+            <p class="filters-price__range-wrapper">
+              <!-- TODO: ??? input[type="radio"] ??? -->
+              <button type="button" class="filters-price-range__from" data-value="0">от 0</button>
+              <button type="button" class="filters-price-range__to" data-value="5000">до 5000</button>
+            </p>
           </section>
 
           <section class="filters__color">
@@ -77,28 +81,39 @@
             <h3 class="filters-title">Цвет</h3>
 
             <p>
-              <input class="filters-price__range" id="color-black" type="checkbox" name="color" value="black" checked>
-              <label class="filters-label" for="color-black">Черный</label>
+              
+              <label class="filters-label">
+                <input class="filters-price__range" type="checkbox" name="color-black" checked>
+                Черный
+              </label>
             </p>
 
             <p>
-              <input class="filters-price__range" id="color-white" type="checkbox" name="color" value="white">
-              <label class="filters-label" for="color-white">Белый</label>
+              <label class="filters-label" for="color-white">
+                <input class="filters-price__range" type="checkbox" name="color-white">
+                Белый
+              </label>
             </p>
 
             <p> 
-              <input class="filters-price__range" id="color-blue" type="checkbox" name="color" value="blue" checked>
-              <label class="filters-label" for="color-blue">Синий</label>
+              <label class="filters-label">
+                <input class="filters-price__range" type="checkbox" name="color-blue" checked>
+                Синий
+              </label>
             </p>
 
             <p>
-              <input class="filters-price__range" id="color-red" type="checkbox" name="color" value="red" checked>
-              <label class="filters-label" for="color-red">Красный</label>
+              <label class="filters-label">
+                <input class="filters-price__range" type="checkbox" name="color-red" checked>
+                Красный
+              </label>
             </p>
 
             <p>
-              <input class="filters-price__range" id="color-pink" type="checkbox" name="color" value="pink">
-              <label class="filters-label" for="color-pink">pink</label>
+              <label class="filters-label" for="color-pink">
+                <input class="filters-price__range" type="checkbox" name="color-pink">
+                Розовый
+              </label>
             </p>
 
           </section>
@@ -108,13 +123,17 @@
             <h3 class="filters-title">Bluetooth</h3>
 
             <p>
-              <input type="radio" name="bluetooth" id="bluetooth-true" value="true" checked>
-              <label for="bluetooth-true">Есть</label>
+              <label>
+                <input type="radio" name="bluetooth" value="true" checked>
+                Есть
+              </label>
             </p>
 
               <p>
-              <input type="radio" name="bluetooth" id="bluetooth-false" value="false">
-              <label for="bluetooth-false">Нет</label>
+              <label for="bluetooth-false">
+                <input type="radio" name="bluetooth" value="false">
+                Нет
+              </label>
             </p>
           </section>
 
@@ -165,7 +184,7 @@
     <footer class="page-footer">
       <section>
         <h2 class="visually-hidden">Нижняя навигация</h2>
-        <a href="index.html"><img src="img/logo.svg" alt="logo"></a>
+        <a href="index.html"><img src="img/logo.svg" alt="Логотип магазина «Device»"></a>
         <a href="#"><span class="page-footer__signin" type="text">Войти</span></a>
         <a href="#"><span class="page-footer__compare" type="text">Сравнить</span></a>
         <a href="#"><span class="page-footer__basket" type="text">Корзина</span></a>

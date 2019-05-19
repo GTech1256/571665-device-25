@@ -8,7 +8,7 @@
     <header class="page-header">
       <div class="page-header-wrapper">
         <a>
-          <img class="page-header__logo" src="img/logo.svg" alt="logo" width="163" height="35">
+          <img class="page-header__logo" src="img/logo.svg" alt="Логотип магазина «Device»" width="163" height="35">
         </a>
 
         <nav class="page-header__second-nav">
@@ -173,37 +173,37 @@
         <ul>
           <li>
             <a href="catalog.html">
-              <img src="img/category/vr.svg" alt="VR" width="97" height="55">
+              <img src="img/category/vr.svg" alt="Иконка VR" width="97" height="55">
               <p>Виртуальная реальность</p>
             </a>
           </li>
           <li>
             <a href="catalog.html">
-              <img src="img/category/monopod.svg" alt="monopod" width="97" height="55">
+              <img src="img/category/monopod.svg" alt="Иконка монопода" width="97" height="55">
               <p>Моноподы для селфи</p>
             </a>
           </li>
           <li>
             <a href="catalog.html">
-              <img src="img/category/camera.svg" alt="camera" width="97" height="55">
+              <img src="img/category/camera.svg" alt="Иконка камеры" width="97" height="55">
               <p>Экшн-камеры</p>
             </a>
           </li>
           <li>
             <a href="catalog.html">
-              <img src="img/category/f-bracelet.svg" alt="fitness bracelet" width="97" height="55">
+              <img src="img/category/f-bracelet.svg" alt="Иконка фитнес-браслета" width="97" height="55">
               <p>Фитнес-браслет</p>
             </a>
           </li>
           <li>
             <a href="catalog.html">
-              <img src="img/category/s-watch.svg" alt="smart watch" width="97" height="55">
+              <img src="img/category/s-watch.svg" alt="Иконка умных часов" width="97" height="55">
               <p>Умные часы</p>
             </a>
           </li>
           <li>
             <a href="catalog.html">
-              <img src="img/category/quadcopters.svg" alt="Quadcopters" width="97" height="55">
+              <img src="img/category/quadcopters.svg" alt="Иконка квадрокоптера" width="97" height="55">
               <p>Квадрокоптеры</p>
             </a>
           </li>
@@ -245,10 +245,10 @@
       <section class="partners">
         <h2 class="visually-hidden">Партнеры</h2>
 
-        <a href="#"><img src="img/partners/1.jpg" alt="partner-1" width="260" height="100"></a>
-        <a href="#"><img src="img/partners/2.jpg" alt="partner-2" width="260" height="100"></a>
-        <a href="#"><img src="img/partners/3.jpg" alt="partner-3" width="260" height="100"></a>
-        <a href="#"><img src="img/partners/4.jpg" alt="partner-4" width="260" height="100"></a>
+        <a href="#"><img src="img/partners/1.jpg" alt="Партнер DJI" width="260" height="100"></a>
+        <a href="#"><img src="img/partners/2.jpg" alt="Партнер  SP Gadgets" width="260" height="100"></a>
+        <a href="#"><img src="img/partners/3.jpg" alt="Партнер GoPro" width="260" height="100"></a>
+        <a href="#"><img src="img/partners/4.jpg" alt="Партнер Vive" width="260" height="100"></a>
       </section>
 
       <section class="about-us">
@@ -277,7 +277,7 @@
           Вы можете забрать товар сами, заехав в наш офис. Заодно, вы сможете проверить работоспособность покупки. Всякое бывает.
         </p>
 
-        <img src="img/map.jpg" alt="Карта" width="560" height="222">
+        <img src="img/map.jpg" alt="Магазин по адресу ул. Строителей 15" width="560" height="222">
 
         <a href="#" class="btn">Напишите нам</a>
       </section>
@@ -287,7 +287,7 @@
     <footer class="page-footer">
       <section>
         <h2 class="visually-hidden">Нижняя навигация</h2>
-        <a><img src="img/logo.svg" alt="logo"></a>
+        <a><img src="img/logo.svg" alt="Логотип магазина «Device»"></a>
         <a href="#"><span class="page-footer__signin" type="text">Войти</span></a>
         <a href="#"><span class="page-footer__compare" type="text">Сравнить</span></a>
         <a href="#"><span class="page-footer__basket" type="text">Корзина</span></a>
@@ -312,19 +312,67 @@
 
     <!-- popups -->
 
-    <section class="wrtite-us">
+    <section class="modal modal__wrtite-us">
       <h2 class="isually-hidden">Напишите нам.</h2>
-      <!-- form -->
-      <button class="wrtite-us__btn-close">
-        x
-        <span></span>
-        <span></span>
-      </button>
+      <form class="modal-wrtite-us__form">
+        <p>
+          <label for="write-us-name">
+            Ваше имя:
+          </label>
+          <input 
+            type="text" 
+            id="write-us-name"
+            name="name" 
+            required 
+            minlength="2" 
+            placeholder="Имя Фамилия" 
+            pattern="^[a-zA-Z]{2,35} [a-zA-Z]{2,35}$"
+          >
+        </p>
+
+        <p>
+          <label for="write-us-email">
+            Ваш e-mail:
+          </label>
+          <input 
+            type="email" 
+            id="write-us-email"
+            name="email" 
+            required
+            placeholder="email@example.ru"
+          >
+        </p>
+
+        <p>
+          <label for="write-us-text">
+            Текст письма:
+          </label>
+          <textarea 
+            type="text" 
+            id="write-us-text"
+            name="text" 
+            required 
+            minlength="2"
+            placeholder="В свободной форме"
+          ></textarea>
+        </p>
+      </form> <!-- /.modal-wrtite-us__form -->
+      <button class="modal__close" aria-label="Закрыть модальное окно">
+          <!-- x via css styles -->
+          <span></span>
+          <span></span>
+        </button>
       <button class="btn">Отправить</button>
     </section>
 
-    <section class="map">
-      <img src="img/map-big.jpg" alt="Большая карта" width="960" height="559">
+    <section class="modal modal__map">
+      <h2 class="isually-hidden">Интерактивная карта</h2>
+      <button class="modal__close" aria-label="Закрыть модальное окно">
+        <!-- x via css styles -->
+        <span></span>
+        <span></span>
+      </button>
+      <img src="img/map-big.jpg" alt="Магазин по адресу ул. Строителей 15" width="960" height="559">
     </section>
   </body>
 </html>
