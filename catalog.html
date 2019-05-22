@@ -12,7 +12,7 @@
         </a>
 
         <nav class="page-header__second-nav">
-          <input class="page-header__search" type="text">
+          <input class="page-header__search" type="search" placeholder="Поиск по сайту">
           <a href="#"><span class="page-header__signin">Войти</span></a>
           <a href="#"><span class="page-header__compare">Сравнить</span></a>
           <a href="#"><span class="page-header__basket">Корзина</span></a>
@@ -51,15 +51,17 @@
         <h2 class="sort__title">
           Сортировка:
         </h2>
-        <a href="#" class="sort__type sort__type_active">По цене</a>
-        <a href="#" class="sort__type">По типу</a>
-        <a href="#" class="sort__type">По популярности</a>
+        <ul>
+          <li><a href="#" class="sort__type sort__type_active">По цене</a></li>
+          <li><a href="#" class="sort__type">По типу</a></li>
+          <li><a href="#" class="sort__type">По популярности</a></li>
+        </ul>
 
         <section class="sort__action">
-          <h2 class="visually-hidden">Сортировка по</h2>
+          <h3 class="visually-hidden">Приоритет по</h3>
           <ul>
-            <li><a href="#" class="sort-action__arrow sort-action__arrow_up">Возрастанию</a></li>
-            <li><a href="#" class="sort-action__arrow sort-action__arrow_down sort-action__arrow_active">Убыванию</a></li>
+            <li><a href="#" class="sort__arrow sort__arrow_up">Возрастанию</a></li>
+            <li><a href="#" class="sort__arrow sort__arrow_down sort__arrow_active">Убыванию</a></li>
           </ul>
         </section>
       </section>
@@ -71,50 +73,50 @@
           
           <section class="filters__price">
             <hr> <!-- hr to ==> border-top -->
-            <h3 class="filters-title">Стоимость</h3>
-            <p class="filters-price__range-wrapper">
+            <h3 class="filters__subtitle">Стоимость</h3>
+            <p class="filters__range-wrapper">
               <!-- TODO: ??? input[type="radio"] ??? -->
-              <button type="button" class="filters-price-range__from" data-value="0">от 0</button>
-              <button type="button" class="filters-price-range__to" data-value="5000">до 5000</button>
+              <button type="button" class="filters__range-from" data-value="0">от 0</button>
+              <button type="button" class="filters__range-to" data-value="5000">до 5000</button>
             </p>
           </section>
 
           <section class="filters__color">
             <hr> <!-- hr to ==> border-top -->
-            <h3 class="filters-title">Цвет</h3>
+            <h3 class="filters__subtitle">Цвет</h3>
 
             <p>
               
-              <label class="filters-label">
-                <input class="filters-price__range" type="checkbox" name="color-black" checked>
+              <label class="filters__label">
+                <input class="filters__input" type="checkbox" name="color-black" checked>
                 Черный
               </label>
             </p>
 
             <p>
-              <label class="filters-label">
-                <input class="filters-price__range" type="checkbox" name="color-white">
+              <label class="filters__label">
+                <input class="filters__input" type="checkbox" name="color-white">
                 Белый
               </label>
             </p>
 
             <p> 
-              <label class="filters-label">
-                <input class="filters-price__range" type="checkbox" name="color-blue" checked>
+              <label class="filters__label">
+                <input class="filters__input" type="checkbox" name="color-blue" checked>
                 Синий
               </label>
             </p>
 
             <p>
-              <label class="filters-label">
-                <input class="filters-price__range" type="checkbox" name="color-red" checked>
+              <label class="filters__label">
+                <input class="filters__input" type="checkbox" name="color-red" checked>
                 Красный
               </label>
             </p>
 
             <p>
-              <label class="filters-label">
-                <input class="filters-price__range" type="checkbox" name="color-pink">
+              <label class="filters__label">
+                <input class="filters__input" type="checkbox" name="color-pink">
                 Розовый
               </label>
             </p>
@@ -123,7 +125,7 @@
 
           <section class="filters__color">
             <hr> <!-- hr to ==> border-top -->
-            <h3 class="filters-title">Bluetooth</h3>
+            <h3 class="filters__subtitle">Bluetooth</h3>
 
             <p>
               <label>
@@ -154,23 +156,23 @@
         <ul class="content__list">
           <li class="content__item">
             <img src="img/catalog/item-1.jpg" alt="Любительская селфи-палка" width="360" height="380">
-            <h3 class="content-item__title">Любительская селфи-палка</h3>
-            <span class="content-item__price">500 руб.</span>
+            <h3 class="content__title">Любительская селфи-палка</h3>
+            <p class="content__price">500 руб.</p>
           </li>
           <li class="content__item">
             <img src="img/catalog/item-2.jpg" alt="Профессиональная селфи-палка" width="360" height="380">
-            <h3 class="content-item__title">Профессиональная селфи-палка</h3>
-            <span class="content-item__price">1 500 руб.</span>
+            <h3 class="content__title">Профессиональная селфи-палка</h3>
+            <p class="content__price">1 500 руб.</p>
           </li>
           <li class="content__item">
             <img src="img/catalog/item-3.jpg" alt="Непотопляемая селфи-палка" width="360" height="380">
-            <h3 class="content-item__title">Непотопляемая селфи-палка</h3>
-            <span class="content-item__price">2 500 руб.</span>
+            <h3 class="content__title">Непотопляемая селфи-палка</h3>
+            <p class="content__price">2 500 руб.</p>
           </li>
           <li class="content__item">
             <img src="img/catalog/item-4.jpg" alt="Селфи-палка «Следуй за мной»" width="360" height="380">
-            <h3 class="content-item__title">Селфи-палка «Следуй за мной»</h3>
-            <span class="content-item__price">4 900 руб.</span>
+            <h3 class="content__title">Селфи-палка «Следуй за мной»</h3>
+            <p class="content__price">4 900 руб.</p>
           </li>
         </ul>
       </section>
@@ -178,8 +180,8 @@
       <nav class="pagination">
         <a class="pagination__link pagination__link_left" href="#">Назад</a>
         <a class="pagination__link" href="#">1</a>
-        <a class="pagination__link pagination__link_unacrive" href="#">2</a>
-        <a class="pagination__link pagination__link_unacrive" href="#">3</a>
+        <a class="pagination__link pagination__link_inacrive" href="#">2</a>
+        <a class="pagination__link pagination__link_inacrive" href="#">3</a>
         <a class="pagination__link pagination__link_right" href="#">Вперед</a>
       </nav>
 
@@ -194,7 +196,7 @@
       </section>
       <section>
         <h2 class="visually-hidden">Информация</h2>
-        <span>г. Москва, ул. Строителей, 15</span>
+        <p>г. Москва, ул. Строителей, 15</p>
         <a href="index.html#services">Доставка</a>
         <a href="index.html#services">Гарантия</a>
         <a href="index.html#contacts">Контакты</a>
