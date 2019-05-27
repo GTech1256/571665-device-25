@@ -1,0 +1,312 @@
+/**
+* z-index:
+*   1     - .page-header__wrapper
+*   (0|3) - .page-header__sub-nav
+*   2     - .slider
+*   10    - .page-header__logo
+*/
+
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gilroy Light'),
+    url('../fonts/web/gilroylight.woff2') format('woff2'),
+    url('../fonts/web/gilroylight.woff') format('woff'),
+    url('../fonts/web/gilroylight.ttf') format('ttf'),
+    url('../fonts/web/gilroylight.eot') format('eot'),
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Gilroy Extra Bold'),
+    url('../fonts/web/gilroyextrabold.woff2') format('woff2'),
+    url('../fonts/web/gilroyextrabold.woff') format('woff'),
+    url('../fonts/web/gilroyextrabold.ttf') format('ttf'),
+    url('../fonts/web/gilroyextrabold.eot') format('eot'),
+}
+
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  
+  font-family: 'Open Sans', Tahoma, sans-serif;
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #464646;
+}
+/*img { max-width: 100% } */
+a { 
+  text-decoration: none;
+  color: inherit;
+}
+
+*, *::before, *::after { box-sizing: inherit; }
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+/* Попапы и всплывающие элементы сейчас стилизовать не нужно. Скройте их с помощью display: none. */
+.modal {
+  display: none;
+}
+
+
+
+
+.page-header {
+  position: relative;
+
+  width: 1160px;
+  height: 186px;
+
+  margin: 0 auto;
+  margin-top: 40px;
+
+  
+  background-color: #f7e296;
+}
+
+.page-header__wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 50px 60px;
+
+  background-color: #f7e296;
+  z-index: 1;
+}
+
+.page-header__logo {
+  position: absolute;
+  left: 0;
+  top: -20px;
+
+  z-index: 10;
+  display: block;
+
+  margin-left: 60px;
+}
+
+.page-header__logo img {
+  display: block;
+  width: 163px;
+  height: 35px;
+}
+
+/* search form */
+.page-header__search {
+  position: relative;
+}
+
+.page-header__search button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  background: transparent;
+  border: 2px solid #000000;
+  color: #000000;
+
+  padding: 5px 10px;
+
+  font: inherit;
+
+  opacity: 0;
+  transition: opacity .3s, background-color .2s, color .2s;
+}
+
+.page-header__search input {
+  background: 
+    transparent 
+    url('../img/icons/search.svg') 
+    no-repeat left center;
+
+  outline: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+
+  padding: 10px 30px;
+  
+  width: 441px;
+
+  transition: border-color .3s;
+}
+
+.page-header__search input::placeholder {
+  transition: opacity .3s;
+
+  color: #000000;
+
+  opacity: .3;
+}
+
+/* header__search action styles */
+.page-header__search input:hover::placeholder {
+  opacity: .6;
+}
+.page-header__search input:focus ~ button { 
+  opacity: 1;
+}
+.page-header__search button:focus { 
+  opacity: 1;
+}
+.page-header__search input:focus::placeholder {
+  opacity: 1;
+}
+.page-header__search input:focus {
+  border-bottom-color: #000000;
+}
+
+.page-header__search button:hover,  
+.page-header__search button:focus { 
+  background-color: #000000;
+  color: #ffffff;
+} 
+.page-header__search button:active { 
+  color: #4d4d4d;
+}
+
+
+
+
+/* icons via pseudo classes */
+
+.page-header__signin {
+  margin: 0 95px 0 200px;
+}
+
+/* secons nav */
+.page-header__second-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* header links more action*/
+.page-header__links-more { 
+  position: relative;
+
+  background: transparent;
+  border: none;
+
+  padding-right: 40px;
+}
+
+.page-header__links-more::after {
+  content: "";
+
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: rotate(0deg) translateY(-50%);
+
+  width: 16px;
+  height: 16px;
+
+  opacity: .3;
+
+  background-image: 
+    linear-gradient(to bottom, transparent 42%, black 42%, black 58%, transparent  58%),
+    linear-gradient(to left, transparent  42%, black 42%, black 58%, transparent  58%);
+
+  transform-origin: 8px 0px;
+  transition: transform .5s;
+
+}
+
+
+.page-header__links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-header__sub-nav {
+  z-index: 0; /* 3*/
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+
+  height: 129px;
+  background: #f7e296;
+
+  transform: translateY(0px);
+  transition: transform .5s ease-out;
+
+  padding-left: 60px;
+}
+
+.page-header__sub-nav_active {
+  transform: translateY(180px);
+}
+
+.page-header__sub-nav ul {
+  height: inherit;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  
+}
+
+/* transitions opacity */
+.page-header a {
+  transition: opacity .3s;
+}
+.page-header a:hover,
+.page-header a:focus {
+  opacity: .6;
+}
+.page-header a:active {
+  opacity: .3;
+}
+
+
+
+
+
+
+
+
+
+
+/* styles by page */
+
+.index-page .page-header {
+  padding-bottom: 164px;
+}
+
+
+
+/* DEBUG */
+html[data-debug="1"] {
+  background: url("../preview/device-index.jpg") top center no-repeat;
+}
+
+html[data-debug="1"] body {
+  opacity: 1;
+}
+
+html[data-debug="1"] body:hover {
+  opacity: .2;
+}
+
+html[data-debug="1"] body:active {
+  opacity: .2;
+}
