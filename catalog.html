@@ -3,41 +3,65 @@
   <head>
     <meta charset="utf-8">
     <title>Каталог | HTML Academy: Девайс</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <header class="page-header">
-      <div class="page-header__wrapper">
-        <a href="index.html">
-          <img class="page-header__logo" src="img/logo.svg" alt="Логотип магазина «Device»" width="163" height="35">
+      <header class="page-header">
+        <a href="/index.html" class="page-header__logo">
+          <img src="img/logo.svg" alt="Логотип магазина «Device»" width="163" height="35">
         </a>
+  
+  
+        <!-- input for show .page-header__sub-nav -->
+        <input 
+          class="page-header__links-more-checkbox" 
+          type="checkbox" 
+          id="links-more-checkbox"
+        >
+  
+        <!-- hidden -->
+        <nav class="page-header__sub-nav">
+            <ul>
+              <li><a href="catalog.html">Виртуальная реальность</a></li>
+              <li><a href="catalog.html">Моноподы для селфи</a></li>
+              <li><a href="catalog.html">Экшн-камеры</a></li>
+              <li><a href="catalog.html">Фитнес-браслеты</a></li>
+              <li><a href="catalog.html">Умные часы</a></li>
+              <br>
+              <li><a href="catalog.html">Квадрокоптеры</a></li>
+            </ul>
+          </nav>
+          
+  
+        <div class="page-header__wrapper">
+          
+  
+          <nav class="page-header__second-nav">
+            <form class="page-header__search">
+                <input class="" type="search" placeholder="Поиск по сайту">
+                <button type="submit">Найти</button>
+            </form>
+            
+            <a class="page-header__signin" href="#">Войти</a>
+            <a class="page-header__compare" href="#">Сравнить</a>
+            <a class="page-header__basket" href="#">Корзина</a>
+          </nav>
+  
+          <nav class="page-header__links">
+            
+            <label class="page-header__links-more" for="links-more-checkbox">
+                Каталог товаров
+            </label>
+  
+            <a href="#services">Доставка</a>
+            <a href="#services">Гарантия</a>
+            <a href="#contacts">Контакты</a>
+          </nav>
+        </div> <!-- /.page-header__wrapper -->
+      </header>
 
-        <nav class="page-header__second-nav">
-          <input class="page-header__search" type="search" placeholder="Поиск по сайту">
-          <a href="#"><span class="page-header__signin">Войти</span></a>
-          <a href="#"><span class="page-header__compare">Сравнить</span></a>
-          <a href="#"><span class="page-header__basket">Корзина</span></a>
-        </nav>
-
-        <nav class="page-header__links">
-          <a href="catalog.html">Каталог товаров</a>
-          <a href="index.html#services">Доставка</a>
-          <a href="index.html#services">Гарантия</a>
-          <a href="index.html#contacts">Контакты</a>
-        </nav>
-      </div> <!-- /.page-header-wrapper -->
-
-      <!-- hidden -->
-      <nav class="page-header__sub-nav">
-        <ul>
-          <li><a href="catalog.html">Виртуальная реальность</a></li>
-          <li><a href="catalog.html">Моноподы для селфи</a></li>
-          <li><a href="catalog.html">Экшн-камеры</a></li>
-          <li><a href="catalog.html">Фитнес-браслеты</a></li>
-          <li><a href="catalog.html">Умные часы</a></li>
-          <li><a href="catalog.html">Квадрокоптеры</a></li>
-        </ul>
-      </nav>
-    </header>
     <main>
       <h1>Моноподы для селфи</h1>
 

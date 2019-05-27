@@ -1,8 +1,8 @@
 /**
 * z-index:
-*   1     - .page-header__wrapper
-*   (0|3) - .page-header__sub-nav
-*   2     - .slider
+*   3     - .page-header__wrapper
+*   (2)   - .page-header__sub-nav
+*   1     - .slider
 *   10    - .page-header__logo
 */
 
@@ -37,7 +37,7 @@ body {
   font-size: 15px;
   line-height: 30px;
   font-weight: 400;
-  color: #464646;
+  color: #000000;
 }
 /*img { max-width: 100% } */
 a { 
@@ -81,11 +81,12 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  padding: 50px 60px;
+  padding: 43px 60px;
+
+
 
   background-color: #f7e296;
-  z-index: 1;
+  z-index: 3;
 }
 
 .page-header__logo {
@@ -137,7 +138,7 @@ a {
   border: none;
   border-bottom: 2px solid transparent;
 
-  padding: 10px 30px;
+  padding: 7px 38px;
   
   width: 441px;
 
@@ -178,20 +179,57 @@ a {
   color: #4d4d4d;
 }
 
-
+.page-header__second-nav a {
+  position: relative;
+}
 
 
 /* icons via pseudo classes */
 
 .page-header__signin {
-  margin: 0 95px 0 200px;
+  margin: 0 175px 0 64px;
 }
+.page-header__signin::before,
+.page-header__compare::before,
+.page-header__basket::before {
+  content: "";
+
+  display: block;
+  position: absolute;
+
+  left: -20px;
+  top:  50%;
+  transform: translateY(-50%);
+  
+  width: 13px;
+  height: 13px;
+
+  background: url('../img/icons/user.svg') no-repeat;
+}
+.page-header__compare::before {background-image: url('../img/icons/compare.svg')}
+.page-header__basket::before {background-image: url('../img/icons/cart.svg')}
 
 /* secons nav */
 .page-header__second-nav {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 33px;
 }
+
+.page-header__links {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 18px;
+  font-family: Gilroy, Tahoma, sans-serif;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 3.5px;
+}
+
+.page-header__links a:nth-child(2) { margin-left: 259px; }
+.page-header__links a:nth-child(3) { margin-right: 73px; }
 
 /* header links more action*/
 .page-header__links-more { 
@@ -200,7 +238,9 @@ a {
   background: transparent;
   border: none;
 
-  padding-right: 40px;
+  padding-right: 28px;
+
+  cursor: pointer;
 }
 
 .page-header__links-more::after {
@@ -222,34 +262,34 @@ a {
 
   transform-origin: 8px 0px;
   transition: transform .5s;
-
 }
 
-
-.page-header__links {
-  display: flex;
-  justify-content: space-between;
+.page-header__links-more-checkbox:checked ~ .page-header__wrapper .page-header__links-more::after {
+  transform: rotate(45deg) translateY(-50%);
+}
+.page-header__links-more-checkbox:checked ~ .page-header__sub-nav {
+  transform: translateY(180px);
+  visibility: visible;
 }
 
 .page-header__sub-nav {
-  z-index: 0; /* 3*/
+  z-index: 2; /* 3*/
   position: absolute;
 
   left: 0;
   right: 0;
   top: 0;
 
+  
+
   height: 129px;
   background: #f7e296;
 
+  visibility: hidden;
   transform: translateY(0px);
-  transition: transform .5s ease-out;
+  transition: transform .5s ease-out, visibility .5s ease-in;
 
   padding-left: 60px;
-}
-
-.page-header__sub-nav_active {
-  transform: translateY(180px);
 }
 
 .page-header__sub-nav ul {
@@ -261,19 +301,25 @@ a {
   list-style: none;
   padding: 0;
   margin: 0;
+}
 
-  
+.page-header__sub-nav li {
+  margin-bottom: 10px;
 }
 
 /* transitions opacity */
-.page-header a {
+.page-header a, 
+.page-header__links-more {
   transition: opacity .3s;
 }
 .page-header a:hover,
-.page-header a:focus {
+.page-header a:focus,
+.page-header__links-more:hover,
+.page-header__links-more:focus {
   opacity: .6;
 }
-.page-header a:active {
+.page-header a:active,
+.page-header__links-more:active {
   opacity: .3;
 }
 
@@ -281,7 +327,16 @@ a {
 
 
 
+.slider {
+  position: relative;
+  z-index: 1;
 
+  transform: translateY(-100px);
+
+  width: 1160px;
+
+  margin: 0 auto
+}
 
 
 
@@ -289,7 +344,7 @@ a {
 /* styles by page */
 
 .index-page .page-header {
-  padding-bottom: 164px;
+  height: 300px;
 }
 
 
@@ -309,4 +364,10 @@ html[data-debug="1"] body:hover {
 
 html[data-debug="1"] body:active {
   opacity: .2;
+}
+
+@keyframes hide {
+  to {
+    display: none;
+  }
 }

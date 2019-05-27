@@ -1,18 +1,40 @@
 <!DOCTYPE html>
-<html lang="ru" data-debug="10">
+<html lang="ru" data-debug="1">
   <head>
     <meta charset="utf-8">
     <title>HTML Academy: Девайс</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="./js/script.js" async></script>
   </head>
   <body class="index-page">
     <header class="page-header">
       <a class="page-header__logo">
         <img src="img/logo.svg" alt="Логотип магазина «Device»" width="163" height="35">
       </a>
+
+
+      <!-- input for show .page-header__sub-nav -->
+      <input 
+        class="page-header__links-more-checkbox" 
+        type="checkbox" 
+        id="links-more-checkbox"
+      >
+
+      <!-- hidden -->
+      <nav class="page-header__sub-nav">
+          <ul>
+            <li><a href="catalog.html">Виртуальная реальность</a></li>
+            <li><a href="catalog.html">Моноподы для селфи</a></li>
+            <li><a href="catalog.html">Экшн-камеры</a></li>
+            <li><a href="catalog.html">Фитнес-браслеты</a></li>
+            <li><a href="catalog.html">Умные часы</a></li>
+            <br>
+            <li><a href="catalog.html">Квадрокоптеры</a></li>
+          </ul>
+        </nav>
+        
+
       <div class="page-header__wrapper">
         
 
@@ -28,27 +50,16 @@
         </nav>
 
         <nav class="page-header__links">
-          <button class="page-header__links-more">
-            Каталог товаров
-          </button>  
+          
+          <label class="page-header__links-more" for="links-more-checkbox">
+              Каталог товаров
+          </label>
 
           <a href="#services">Доставка</a>
           <a href="#services">Гарантия</a>
           <a href="#contacts">Контакты</a>
         </nav>
       </div> <!-- /.page-header__wrapper -->
-
-      <!-- hidden -->
-      <nav class="page-header__sub-nav">
-        <ul>
-          <li><a href="catalog.html">Виртуальная реальность</a></li>
-          <li><a href="catalog.html">Моноподы для селфи</a></li>
-          <li><a href="catalog.html">Экшн-камеры</a></li>
-          <li><a href="catalog.html">Фитнес-браслеты</a></li>
-          <li><a href="catalog.html">Умные часы</a></li>
-          <li><a href="catalog.html">Квадрокоптеры</a></li>
-        </ul>
-      </nav>
     </header>
 
     <main>
