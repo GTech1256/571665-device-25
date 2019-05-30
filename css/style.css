@@ -830,3 +830,281 @@ a {
 
 
 /* LOCAL STYLES FOR CATALOG.HTML */
+/* sub-header */
+
+.sub-header {
+  width: 1160px;
+  margin: auto;
+  padding: 38px 60px;
+  margin-bottom: 6px;
+}
+
+.sub-header__headline {
+  font: 800 47px/48px Gilroy, Tahoma, sans-serif;
+  letter-spacing: .5px;
+  margin: 0;
+  margin-bottom: 18px;
+}
+
+.breadcrumbs {
+  display: flex;
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumbs__item {
+  position: relative;
+
+  letter-spacing: -0.5px;
+
+  font-size: 14px;
+
+  padding-right: 40px;
+}
+
+.breadcrumbs__item a {
+  opacity: .3;
+}
+
+.breadcrumbs__item:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  right: 20px;
+  top: 50%;
+
+
+  width: 5px;
+  height: 5px;
+
+  border: 1px solid #000000;
+  border-bottom: transparent;
+  border-left: transparent;
+
+  transform: rotate(45deg) translateY(-60%);
+}
+
+
+
+
+/* SORT */
+
+
+
+.catalog-container {
+  position: relative;
+  display: flex;
+  width: 1160px;
+  margin: 0 auto;
+}
+
+
+
+
+.sort {
+  background: rgba(0, 0, 0, .08);
+  height: 70px;
+}
+
+.sort__wrapper {
+  display: flex;
+  align-items: center;
+
+  width: 1211px;
+  height: inherit;
+
+  margin: auto;
+  padding-left: 432px;
+}
+
+.sort__title {
+  font: 800 16px/24px Gilroy, Tahoma, sans-serif;
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  margin-right: 45px;
+}
+
+.sort__type {
+  margin-right: 30px;
+
+  font-size: 14px;
+
+  opacity: .3;
+}
+
+.sort__type_active {
+  opacity: 1;
+}
+
+.sort__list {
+  display: flex;
+
+  list-style: none;
+
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.sort__action {
+  margin-left: auto;
+}
+
+.sort__arrow {
+  position: relative;
+
+
+  font-size: 0px;
+
+  margin-right: 20px;
+
+
+  border: 12px solid #000000;
+
+  border-left-width: 6px;
+  border-right-width: 6px;
+
+  
+  border-left-color: transparent;
+  border-right-color: transparent;
+
+  opacity: .2;
+}
+
+.sort__arrow_up {
+  border-top-color: transparent;
+  
+  top: -6px;
+}
+.sort__arrow_down {
+  border-bottom-color: transparent;
+  top: 6px;
+}
+.sort__arrow_active {
+  opacity: 1;
+}
+
+
+/* FILTERS */
+
+.filters {
+  margin-top: -67px;
+  background: rgba(0, 0, 0, .08);
+
+  position: absolute;
+  top: 0;
+  right: 832px;
+  left: -100vw;
+  bottom: 0;
+}
+
+.filters__wrapper {
+  position: absolute;
+  top: 0;
+  right: 70px;
+
+  width: 200px;
+}
+
+.filters__title {
+  font: 800 16px/24px Gilroy, Tahoma, sans-serif;
+  letter-spacing: 4px;
+  margin: 21px 7px;
+
+  margin-bottom: 100px;
+  text-transform: uppercase;
+}
+
+.filters__subtitle {
+  font: 800 16px/24px Gilroy, Tahoma, sans-serif;
+  padding-top: 15px;
+}
+
+.filters__subtitle {
+  border-top: 2px solid #000000;
+}
+
+.filters__range-wrapper {
+  height: 45px;
+  margin: 35px 0;
+}
+
+.filters__label {
+  position: relative;
+  font-size: 14px;
+  line-height: 40px;
+
+  padding-left: 40px;
+}
+
+.filters__input {
+  display: none;
+}
+
+.filters__label::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: block;
+  
+  width: 24px;
+  height: 24px;
+
+  background: url('../img/icons/checkbox-off.svg') middle center no-repeat;
+  background-size: cover;
+
+}
+
+.filters__input:checked ~ .filters__label::before {
+  background-image: url('../img/icons/checkbox-on.svg');
+}
+
+/* CONTENT */
+
+.content {
+  padding: 72px;
+  padding-right: 0;
+  
+  margin-left: 327px;
+}
+
+.content__list {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 0 360px;
+
+  justify-content: space-between;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.content__item {
+  margin-bottom: 50px;
+}
+
+.content__desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content__title {
+  width: 65%;
+  font: 800 18px/24px Gilroy, Tahoma, sans-serif;
+}
+
+.content__price {
+  font: 400 16px/24px Gilroy, Tahoma, sans-serif;
+}
