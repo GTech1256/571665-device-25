@@ -688,8 +688,9 @@ a {
   border-right: 7px solid black;
 }
 
-.services__list li {
+.services__item {
   margin-right: 117px;
+  z-index: 1;
 }
 
 .services__desc-list {
