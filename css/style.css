@@ -86,6 +86,7 @@ a {
 
   box-sizing: border-box;
 
+  cursor: pointer;
 
 }
 
@@ -1040,13 +1041,15 @@ a {
   line-height: 40px;
 
   padding-left: 40px;
+
+  cursor: pointer;
 }
 
 .filters__input {
   display: none;
 }
 
-.filters__label::before {
+.filters__label::before, .filters__label::after {
   content: "";
 
   position: absolute;
@@ -1059,13 +1062,22 @@ a {
   width: 24px;
   height: 24px;
 
-  background: url('../img/icons/checkbox-off.svg') middle center no-repeat;
+  background: url(../img/icons/checkbox-off.svg) center center no-repeat;
   background-size: cover;
 
 }
 
-.filters__input:checked ~ .filters__label::before {
-  background-image: url('../img/icons/checkbox-on.svg');
+.filters__label::after {
+  background-image: url('../img/icons/checkbox-on-line.svg');
+  opacity: 0;
+
+  transition: opacity .3s;
+}
+
+
+
+.filters__input:checked ~ .filters__label::after {
+  opacity: 1;
 }
 
 /* CONTENT */
