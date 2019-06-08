@@ -51,8 +51,11 @@
               <input class="" type="search" placeholder="Поиск по сайту">
               <button type="submit">Найти</button>
           </form>
+          <div class="page-header__profile-holder">
+              <a class="page-header__profile" href="#">Валентин Петухов</a>
+              <a class="page-header__logout" href="#">Выйти</a>
+          </div>
           
-          <a class="page-header__signin" href="#">Войти</a>
           <a class="page-header__compare" href="#">Сравнить</a>
           <a class="page-header__basket" href="#">Корзина</a>
         </nav>
@@ -143,7 +146,7 @@
                 </p>
 
                 <p>
-                  <input class="filters__input" type="checkbox" id="filter-color-red" name="color-red" checked disabled>
+                  <input class="filters__input" type="checkbox" id="filter-color-red" name="color-red" checked>
                   <label class="filters__label filters__label_checkbox" for="filter-color-red">
                     Красный
                   </label>
@@ -170,7 +173,7 @@
                 </p>
 
                 <p>
-                  <input class="filters__input" type="radio" name="bluetooth" id="bluetooth-input-false" value="false" disabled>
+                  <input class="filters__input" type="radio" name="bluetooth" id="bluetooth-input-false" value="false">
                   <label class="filters__label filters__label_round" for="bluetooth-input-false">
                     Нет
                   </label>
@@ -191,7 +194,14 @@
 
           <ul class="content__list">
             <li class="content__item">
-              <img src="img/catalog/item-1.jpg" alt="Любительская селфи-палка" width="360" height="380">
+              <div class="content__action-wrapper">
+                  <img src="img/catalog/item-1.jpg" alt="Любительская селфи-палка" width="360" height="380">
+                  <div class="content__action">
+                    <button class="btn">В корзину</button >
+                    <button class="content__comparison">Добавить к сравнению</button>
+                  </div>
+              </div>
+              
               <div class="content__desc">
                 <h3 class="content__title">Любительская селфи-палка</h3>
                 <p class="content__price">500 руб.</p>
@@ -199,14 +209,26 @@
               
             </li>
             <li class="content__item">
-              <img src="img/catalog/item-2.jpg" alt="Профессиональная селфи-палка" width="360" height="380">
+              <div class="content__action-wrapper">
+                  <img src="img/catalog/item-2.jpg" alt="Профессиональная селфи-палка" width="360" height="380">
+                  <div class="content__action">
+                    <button class="btn">В корзину</button >
+                    <button class="content__comparison">Добавить к сравнению</button>
+                  </div>
+                </div>
               <div class="content__desc">
                 <h3 class="content__title">Профессиональная селфи-палка</h3>
                 <p class="content__price">1 500 руб.</p>
               </div>
             </li>
             <li class="content__item">
-              <img src="img/catalog/item-3.jpg" alt="Непотопляемая селфи-палка" width="360" height="380">
+              <div class="content__action-wrapper">
+                <img src="img/catalog/item-3.jpg" alt="Непотопляемая селфи-палка" width="360" height="380">
+                <div class="content__action">
+                  <button class="btn">В корзину</button >
+                  <button class="content__comparison">Добавить к сравнению</button>
+                </div>
+              </div>
               <div class="content__desc">
                 <h3 class="content__title">Непотопляемая селфи-палка</h3>
                 <p class="content__price">2 500 руб.</p>
@@ -214,7 +236,13 @@
               
             </li>
             <li class="content__item">
-              <img src="img/catalog/item-4.jpg" alt="Селфи-палка «Следуй за мной»" width="360" height="380">
+              <div class="content__action-wrapper">
+                <img src="img/catalog/item-4.jpg" alt="Селфи-палка «Следуй за мной»" width="360" height="380">
+                <div class="content__action">
+                  <button class="btn">В корзину</button >
+                  <button class="content__comparison">Добавить к сравнению</button>
+                </div>
+              </div>
               <div class="content__desc">
                 <h3 class="content__title">Селфи-палка «Следуй за мной»</h3>
                 <p class="content__price">4 900 руб.</p>

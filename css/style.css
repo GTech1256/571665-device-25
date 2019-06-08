@@ -121,8 +121,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
   box-sizing: border-box;
 
+  transition: color .3s;
   cursor: pointer;
 
+  z-index: 1;
 }
 
 .btn_small { width: 160px; }
@@ -150,10 +152,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
   z-index: -1;
 }
-
-.btn:hover::before  {
+.btn:hover::before,
+.btn:focus::before  {
   top: 0;
   bottom: 0;
+}
+.btn:active {
+  color: rgba(0, 0, 0, .3)
 }
 
 /* Попапы и всплывающие элементы сейчас стилизовать не нужно. Скройте их с помощью display: none. */
@@ -286,14 +291,21 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   padding-left: 20px;
 }
 
+.page-header__compare {
+  margin-right: 35px;
+}
+.page-header__logout {
+  opacity: .3;
+}
 
 /* icons via pseudo classes */
 
-.page-header__second-nav .page-header__signin {
-  margin: 0px 173px 0 57px;
+.page-header__second-nav .page-header__profile-holder {
+  position: relative;
+  margin: 0px 56px 0 auto;
   padding-left: 27px;
 }
-.page-header__signin::before,
+.page-header__profile-holder::before,
 .page-header__compare::before,
 .page-header__basket::before {
   content: "";
@@ -1193,6 +1205,60 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
 
 .content__item {
   margin-bottom: 50px;
+}
+
+.content__action-wrapper {
+  position: relative;
+  width: 360px;
+  height: 380px;
+}
+
+.content__action-wrapper:hover .content__action {
+  opacity: 1;
+}
+
+.content__action {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: rgba(238,238,238, .7);
+
+  opacity: 0;
+  transition: opacity .3s;
+
+  padding-top: 25px;
+}
+
+.content__comparison {
+  background: none;
+  border: none;
+  margin-top: 25px;
+
+  opacity: .5;
+  cursor: pointer;
+
+  transition: opacity .3s;
+}
+
+.content__comparison:focus,
+.content__comparison:hover {
+  opacity: 1;
+}
+
+.content__comparison:active {
+  opacity: .2;
+}
+
+.content__action .btn {
+  width: 200px;
+  margin: 0 auto;
 }
 
 .content__desc {
