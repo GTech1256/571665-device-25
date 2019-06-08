@@ -77,9 +77,18 @@
       <section class="slider">
 
         <div class="slider__nav">
-            <input class="slider__nav-item" type="radio" name="slider" data-slider-number="1" checked>
-            <input class="slider__nav-item"type="radio" name="slider" data-slider-number="2">
-            <input class="slider__nav-item" type="radio" name="slider" data-slider-number="3">
+          <label class="slider__nav-item" aria-label="Открыть первый слайд">
+              <input type="radio" name="slider" data-slider-number="1" checked>
+              <span><!-- css input --></span>
+          </label>
+          <label class="slider__nav-item" aria-label="Открыть второй слайд">
+              <input type="radio" name="slider" data-slider-number="2">
+              <span><!-- css input --></span>
+          </label>
+          <label class="slider__nav-item" aria-label="Открыть третий слайд">
+              <input type="radio" name="slider" data-slider-number="3">
+              <span><!-- css input --></span>
+          </label>
           </div>
 
 
@@ -88,36 +97,36 @@
         <ul class="slider__list">
           
           <li class="slider__item">
-            <img src="img/slider-1.png" alt="Монопод с карбоном">
+            <img class="slider__image" src="img/slider-1.png" alt="Монопод с карбоном">
             <article class="slider__content">
-
+              <h3 class="visually-hidden">Селфи-палка</h3>
               <p class="slider__number">
                 01
               </p>
 
               <header class="slider__title">
-                <h3>
-                  Делай селфи, 
+                <p>
+                  Делай селфи,<br>
                   как Бен Стиллер! 
-                </h3>
+                </p>
               </header>
 
               <p class="slider__desc">
-                  Самая длинная палка для селфи доступна в нашем магазине.
+                  Самая длинная палка для селфи доступна в нашем магазине.<br>
                   Восемь (Восемь, Карл!) метров длиной и весом всего 5 килограмм.
               </p>
 
               <a href="catalog.html" class="slider__more btn btn_medium">Подробнее</a>
 
               <table class="slider__table">
-                <thead>
-                  <tr>
+                <thead class="slider__table-head">
+                  <tr >
                     <td class="slider__table-key">Длина палки</td>
                     <td class="slider__table-key">Вес палки</td>
                     <td class="slider__table-key">Материал</td>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="slider__table-body">
                   <tr>
                     <td class="slider__table-value">8,5 м</td>
                     <td class="slider__table-value">5 кг</td>
@@ -130,18 +139,18 @@
           </li> <!-- /.slider__item -->
           
           <li class="slider__item">
-            <img src="img/slider-2.png" alt="Браслет">
+            <img class="slider__image" src="img/slider-2.png" alt="Браслет">
             <article class="slider__content">
-
+              <h3 class="visually-hidden">Фитнес-браслет</h3>
               <p class="slider__number">
                 02
               </p>
 
               <header class="slider__title">
-                <h3>
+                <p>
                   Худеем<br>
                   правильно!
-                </h3>
+                </p>
               </header>
 
               <span class="slider__desc">
@@ -152,12 +161,12 @@
               <a href="catalog.html" class="slider__more btn btn_medium">Подробнее</a>
 
               <table class="slider__table">
-                <thead>
+                <thead class="slider__table-head">
                   <tr>
                     <td class="slider__table-key">Без подзарядки</td>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="slider__table-body">
                   <tr>
                     <td class="slider__table-value">48 часов</td>
                   </tr>
@@ -168,18 +177,18 @@
           </li> <!-- /.slider__item -->
 
           <li class="slider__item">
-              <img src="img/slider-3.png" alt="Монопод с карбоном">
+              <img class="slider__image" src="img/slider-3.png" alt="Монопод с карбоном">
               <article class="slider__content">
-  
+                <h3 class="visually-hidden">Квадрокоптер</h3>
                 <p class="slider__number">
                   03
                 </p>
   
                 <header class="slider__title">
-                  <h3>
+                  <p>
                     Порхает как бабочка,
                     жалит как пчела!
-                  </h3>
+                  </p>
                 </header>
   
                 <span class="slider__desc">
@@ -190,13 +199,13 @@
                 <a href="catalog.html" class="slider__more btn btn_medium">Подробнее</a>
   
                 <table class="slider__table">
-                  <thead>
+                  <thead class="slider__table-head">
                     <tr>
                       <td class="slider__table-key">Дальность полета</td>
                       <td class="slider__table-key">Радиус поражения</td>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="slider__table-body">
                     <tr>
                       <td class="slider__table-value">800 м</td>
                       <td class="slider__table-value">50 м</td>
