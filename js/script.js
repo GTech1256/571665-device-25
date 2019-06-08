@@ -59,12 +59,34 @@ function setSliderFrame({ target }) {
 }
 
 
+const firstServiceDescription = document.getElementsByClassName('services__desc-item')[0]
+const servicesStepPixels = 1010; // width of element
+/* SERVICES CONTROLLER */
+function setServiceSlider({ target }, activeClassName) {
+  target.classList.add(activeClassName);
+  firstServiceDescription.style.marginLeft = `-${target.dataset.counter * servicesStepPixels}px`;
+}
+
+function clearActiveClass(items, activeClassName) {
+  for (const item of items) {
+    item.classList.remove(activeClassName);
+  }
+}
 
  function init() {
   console.log('js inited');
   document
     .getElementsByClassName('slider__nav')[0]
     .addEventListener('click', setSliderFrame);
+
+  const activeClassName = 'services__item_active';
+  const serviceItems = document.getElementsByClassName('services__item');
+  for (const item of serviceItems) {
+    item.addEventListener('click', (event) => {
+      clearActiveClass(serviceItems, activeClassName)
+      setServiceSlider(event, activeClassName)
+    })
+  }
 }
 
 if (document.readyState !== 'loading') {

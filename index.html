@@ -277,26 +277,26 @@
         <h2 class="visually-hidden">Наши сервисы</h2>
         <div class="services__wrapper">
           <ul class="services__list">
-            <li class="services__item btn btn_small">Доставка</li>
-            <li class="services__item btn btn_small">Гарантия</li>
-            <li class="services__item btn btn_small">Кредит</li>
+            <li><button  class="services__item services__item_active btn btn_small" data-counter="0">Доставка</button></li>
+            <li><button class="services__item btn btn_small" data-counter="1">Гарантия</button></li>
+            <li><button class="services__item btn btn_small" data-counter="2">Кредит</button></li>
           </ul>
 
           <ul class="services__desc-list">
-            <li class="services__desc-item">
+            <li class="services__desc-item services__desc-item_delivery-icon">
               <h3 class="services__desc-title">Доставка</h3>
               <p class="services__text">
                 Мы с удовольствием доставим ваш товар прямо к вашему подъезду совершенно бесплатно! Ведь мы неплохо заработаем, поднимая его на ваш этаж.
               </p>
             </li>
-            <li class="services__desc-item">
+            <li class="services__desc-item services__desc-item_warranty-icon">
               <h3 class="services__desc-title">Гарантия</h3>
               <p class="services__text">
                   Если из-за возгорания купленного у нас товара у вас сгорит дом — не переживайте, мы выдадим вам новый.<br>
                   Товар, не дом, конечно же.
               </p>
             </li>
-            <li class="services__desc-item">
+            <li class="services__desc-item services__desc-item_credit-icon">
                 <h3 class="services__desc-title">Кредит</h3>
                 <p class="services__text">
                     Залезть в долговую яму стало проще! Кредитные консультанты подберут для вас наиболее выгодные 
@@ -373,7 +373,7 @@
         </section>
         <section>
           <h2 class="visually-hidden">Информация</h2>
-          <p>г. Москва, ул. Строителей, 15</p>
+          <p class="page-footer__address">г. Москва, ул. Строителей, 15</p>
           <ul class="page-footer__center page-footer__anchors">
             <li><a class="page-footer_interactive" href="#services">Доставка</a></li>
             <li></li><a class="page-footer_interactive" href="#services">Гарантия</a></li>
