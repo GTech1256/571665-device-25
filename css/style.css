@@ -330,12 +330,16 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .page-header__second-nav {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+
+
   margin-bottom: 35px;
 }
 
 .page-header__links {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 
   font: 800 18px/24px Gilroy, Tahoma, sans-serif;
 
@@ -727,6 +731,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   margin-bottom: 46px;
 }
 
+.slider__table-wrapper {
+  max-width: 100%;
+  overflow: auto;
+}
+
 .slider__table-head { 
   display: table-row-group; 
   font: 400 13px/20px Gilroy, Tahoma, sans-serif;
@@ -970,6 +979,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .brands {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 1160px;
 
   margin: 0 auto;
