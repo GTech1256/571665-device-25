@@ -75,8 +75,8 @@
         <h1 class="sub-header__headline">Моноподы для селфи</h1>
 
         <ul class="sub-header__element breadcrumbs">
-          <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
-          <li class="breadcrumbs__item"><a class="breadcrumbs_current">Каталог товаров</a></li>
+          <li class="breadcrumbs__item"><a class="h-opacity-anim-desc" href="index.html">Главная</a></li>
+          <li class="breadcrumbs__item"><a class="h-opacity-anim-desc" href="catalog.html">Каталог товаров</a></li>
           <li class="breadcrumbs__item"><a class="breadcrumbs_current">Моноподы для селфи</a></li>
         </ul>
       </div>
@@ -87,16 +87,16 @@
             Сортировка:
           </h2>
           <ul class="sort__list">
-            <li><a href="#" class="sort__type sort__type_active">По цене</a></li>
-            <li><a href="#" class="sort__type">По типу</a></li>
-            <li><a href="#" class="sort__type">По популярности</a></li>
+            <li><a href="#" class="sort__type h-opacity-anim-asc sort__type_active">По цене</a></li>
+            <li><a href="#" class="sort__type h-opacity-anim-asc">По типу</a></li>
+            <li><a href="#" class="sort__type h-opacity-anim-asc">По популярности</a></li>
           </ul>
 
           <section class="sort__action">
             <h3 class="visually-hidden">Приоритет по</h3>
             <ul class="sort__list">
-              <li><a href="#" class="sort__arrow sort__arrow_up">Возрастанию</a></li>
-              <li><a href="#" class="sort__arrow sort__arrow_down sort__arrow_active">Убыванию</a></li>
+              <li><a href="#" class="sort__arrow h-opacity-anim-asc sort__arrow_up">Возрастанию</a></li>
+              <li><a href="#" class="sort__arrow h-opacity-anim-asc sort__arrow_down sort__arrow_active">Убыванию</a></li>
             </ul>
           </section>
         </div>
@@ -143,7 +143,7 @@
                 </p>
 
                 <p>
-                  <input class="filters__input" type="checkbox" id="filter-color-red" name="color-red" checked>
+                  <input class="filters__input" type="checkbox" id="filter-color-red" name="color-red" checked disabled>
                   <label class="filters__label filters__label_checkbox" for="filter-color-red">
                     Красный
                   </label>
@@ -170,7 +170,7 @@
                 </p>
 
                 <p>
-                  <input class="filters__input" type="radio" name="bluetooth" id="bluetooth-input-false" value="false">
+                  <input class="filters__input" type="radio" name="bluetooth" id="bluetooth-input-false" value="false" disabled>
                   <label class="filters__label filters__label_round" for="bluetooth-input-false">
                     Нет
                   </label>
@@ -221,12 +221,14 @@
               </div>
             </li>
           </ul>
-          <nav class="content__content">
-              <a class="content__link content__link_left" href="#">Назад</a>
-              <a class="content__link" href="#">1</a>
-              <a class="content__link content__link_inacrive" href="#">2</a>
-              <a class="content__link content__link_inacrive" href="#">3</a>
-              <a class="content__link content__link_right" href="#">Вперед</a>
+          <nav class="content__nav">
+              <a class="content__link content__link_btn" href="#">Назад</a>
+              <ul class="content__nav-list">
+                <li><a class="content__link">1</a></li>
+                <li><a class="content__link h-opacity-anim-asc" href="#">2</a></li>
+                <li><a class="content__link h-opacity-anim-asc" href="#">3</a></li>
+              </ul>
+              <a class="content__link content__link_btn" href="#">Вперед</a>
             </nav>
         </section>
       </div><!-- /.catalog-container -->
