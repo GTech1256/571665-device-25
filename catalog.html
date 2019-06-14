@@ -114,11 +114,27 @@
               
               <section class="filters__price">
                 <h3 class="filters__subtitle">Стоимость</h3>
-                <p class="filters__range-wrapper">
-                  <!-- TODO: ??? input[type="radio"] ??? -->
-                  <button type="button" class="filters__range-from" data-value="0">от 0</button>
-                  <button type="button" class="filters__range-to" data-value="5000">до 5000</button>
-                </p>
+                <div class="filters__range-wrapper">
+                  <div class="filters__from">
+                      <button class="filters__range-button" type="button">
+                        от 0
+                      </button>
+                      <label class="filters__range-label">
+                          от
+                          <input type="number" class="filters__range-input" value="0" max="5000" maxlength="5">
+                        </label>
+                  </div>
+                  <div class="filters__to">
+                      
+                      <button class="filters__range-button filters__range-button_to" type="button">
+                        до 5000
+                      </button>
+                      <label class="filters__range-label filters__range-label_to">
+                        до
+                        <input type="number" class="filters__range-input" value="5000" max="10000" maxlength="5">
+                      </label>
+                  </div>
+                </div>
               </section>
 
               <section class="filters__color">
@@ -161,8 +177,7 @@
 
               </section>
 
-              <section class="filters__color">
-                <hr> <!-- hr to ==> border-top -->
+              <section class="filters__bluetooth">
                 <h3 class="filters__subtitle">Bluetooth</h3>
 
                 <p>

@@ -1322,14 +1322,24 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   cursor: pointer;
 }
 
+.filters__color p,
+.filters__bluetooth p {
+  margin: 0;
+}
+
+.filters__bluetooth {
+  padding-top: 31px;
+  margin-bottom: 23px;
+}
+
 .filters__wrapper {
   position: absolute;
   top: 0;
-  right: 70px;
+  right: 68px;
 
-  width: 200px;
+  width: 201px;
 
-  padding-top: 24px;
+  padding-top: 21px;
 }
 
 .filters__title {
@@ -1347,13 +1357,167 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   border-top: 2px solid #000000;
 
   margin: 0;
+  margin-bottom: 25px;
   padding-top: 10px;
 }
 
-.filters__range-wrapper {
-  height: 45px;
-  margin: 35px 0;
+.filters__color .filters__subtitle {
+  margin-bottom: 18px;
 }
+.filters__bluetooth .filters__subtitle {
+  margin-bottom: 16px;
+}
+
+.filters__range-wrapper {
+  position: relative;
+
+  height: 45px;
+  margin-bottom: 34px;
+
+
+  display: flex;
+  width: 100%;
+  background: 
+    linear-gradient(
+      to bottom, 
+      transparent 10px, 
+      #dbdbdb 10px, 
+      #dbdbdb 12px, 
+      transparent 12px
+    );
+}
+/*
+.filters__range-wrapper::before,
+.filters__range-wrapper::after {
+  content: "";
+  display: block;
+
+  position: absolute;
+  top: 10px;
+
+  height: 5px;
+  width: 10px;
+
+  background: #efefef;
+}
+.filters__range-wrapper::before { left: 0;}
+.filters__range-wrapper::after { right: 0;}
+*/
+.filters__from,
+.filters__to {
+  position: relative;
+}
+
+.filters__from {
+  z-index: 3;
+}
+.filters__from::before {
+  content: "";
+
+  position: absolute;
+  top: 10px;
+  right: 0px;
+
+  width: 200px;
+  height: 2px;
+  z-index: 0;
+
+  background: #ebebeb;
+}
+
+.filters__to {
+  left: 56%;
+}
+.filters__to::before {
+  content: "";
+
+  position: absolute;
+  top: 10px;
+  right: 0px;
+
+  width: 200px;
+  height: 2px;
+  z-index: 0;
+
+  background: #91c92f;
+
+}
+
+.filters__range-button {
+  position: absolute;
+
+  left: -5px;
+
+  width: 20px;
+  height: 20px;
+
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+
+  font-size: 0px;
+
+  z-index: 2;
+
+  box-shadow: 0px 2px 0 0 rgba(0, 0, 0, .1);
+}
+.filters__range-button::after {
+  content: "";
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 4px;
+  height: 4px;
+
+  background: #ababab;
+
+  border-radius: 50%;
+}
+.filters__range-button:active {
+  transform: scale(1.1);
+}
+
+.filters__range-label {
+  position: absolute;
+
+  top: 28px;
+
+  height: 30px;
+  font: 400 14px/10px Gilroy, Tahoma, sans-serif;
+
+  color: #cecece;
+}
+.filters__range-label_to {
+  left: -22px;
+}
+
+.filters__range-input {
+  position: absolute;
+  left: 20px;
+  top: 0px;
+
+  width: 60px;
+
+  height: 10px;
+
+  color: #cecece;
+  background: transparent;
+  border: none;
+}
+.filters__range-input::-webkit-outer-spin-button,
+.filters__range-input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.filters__range-input:invalid {
+  color: red;
+}
+
+
 
 .filters__label {
   position: relative;
@@ -1361,6 +1525,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   line-height: 40px;
 
   padding-left: 40px;
+}
+
+.filters__bluetooth .filters__label {
+  line-height: 44px;
 }
 
 .filters__input {
@@ -1415,7 +1583,6 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
   top: 42%
   */
 }
-
 
 /* modifcs */
 .filters__label_checkbox::before, 
