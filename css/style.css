@@ -54,11 +54,15 @@ body {
 
   color: #000000;
 }
-/*img { max-width: 100% } */
+img { 
+  max-width: 100%;
+}
 a { 
   text-decoration: none;
   color: inherit;
 }
+
+
 
 *, *::before, *::after { box-sizing: inherit; }
 
@@ -162,13 +166,114 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   color: rgba(0, 0, 0, .3)
 }
 
-/* Попапы и всплывающие элементы сейчас стилизовать не нужно. Скройте их с помощью display: none. */
+/* MODAL */
 .modal {
   display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 960px;
+  height: 553px;
+
+  background: #ffffff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+
+  z-index: 100;
+}
+.modal__active {
+  display: block;
 }
 
+.modal .btn {
+  width: 220px;
+}
 
+.modal__close {
+  position: absolute;
+  top: 23px;
+  right: 23px;
+  font-size: 0;
 
+  border: 0;
+  border-radius: 50%;
+  background: #f7e296;
+
+  width: 55px;
+  height: 55px;
+
+  z-index: 10;
+}
+.modal__close::before,
+.modal__close::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%,-50%) rotate(45deg);
+
+  width: 29px;
+  height: 2px;
+
+  background: #ffffff;
+}
+.modal__close::after {
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+.modal__wrtite-us {
+  padding: 100px 100px 75px 100px;
+}
+
+.modal__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.modal__map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal__form-inlet {
+  width: 360px;
+  margin: 0;
+}
+
+.modal__form-inlet_long {
+  width: 100%;
+  display: block;
+  padding-top: 40px;
+  margin-bottom: 35px;
+}
+
+.modal__form-inlet label {
+  font: 800 18px/24px Gilroy, Tahoma, sans-serif;
+  display: block;
+
+  margin-bottom: 10px;
+}
+
+.modal__form-inlet input,
+.modal__form-inlet textarea {
+  background: rgba(239, 239, 239, .5);
+  border: none;
+  padding: 20px;
+  width: 100%;
+  height: 50px;
+}
+
+.modal__form-inlet textarea {
+  height: 156px;
+  resize: none;
+}
 
 .page-header {
   position: relative;

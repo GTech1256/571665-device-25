@@ -404,8 +404,8 @@
 
     <section class="modal modal__wrtite-us" role="dialog">
       <h2 class="visually-hidden">Напишите нам.</h2>
-      <form class="modal-wrtite-us__form">
-        <p>
+      <form class="modal__form">
+        <p class="modal__form-inlet">
           <label for="write-us-name">
             Ваше имя:
           </label>
@@ -420,11 +420,11 @@
           >
         </p>
 
-        <p>
+        <p class="modal__form-inlet">
           <label for="write-us-email">
             Ваш e-mail:
           </label>
-          <input 
+          <input
             type="email" 
             id="write-us-email"
             name="email" 
@@ -433,7 +433,7 @@
           >
         </p>
 
-        <p>
+        <p class="modal__form-inlet modal__form-inlet_long">
           <label for="write-us-text">
             Текст письма:
           </label>
@@ -443,21 +443,23 @@
             required 
             minlength="2"
             placeholder="В свободной форме"
-          ></textarea>
+          ></textarea>  
         </p>
+        <button class="btn" type="submit">Отправить</button>
       </form> <!-- /.modal-wrtite-us__form -->
-      <button class="modal__close">
+      <button class="modal__close" type="button">
         Закрыть модальное окно
       </button>
-      <button class="btn">Отправить</button>
     </section>
 
-    <section class="modal modal__map" role="dialog">
+    <section class="modal" role="dialog">
       <h2 class="visually-hidden">Интерактивная карта</h2>
       <button class="modal__close">
         Закрыть модальное окно
       </button>
-      <img src="img/map-big.jpg" alt="Магазин по адресу ул. Строителей 15" width="960" height="559">
+      <img class="modal__map" src="img/map-big.jpg" alt="Магазин по адресу ул. Строителей 15" width="960" height="559">
+      <iframe class="modal__map" src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae9e5a2a92d47c29e115809245489656104b7c7b8069c1db53da6a5947b18b730&amp;source=constructor" width="960" height="559" frameborder="0"></iframe>
+      
     </section>
   </body>
 </html>
