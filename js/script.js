@@ -1,8 +1,19 @@
 const firstServiceDescription = document.getElementsByClassName('services__desc-item')[0]
 const servicesStepPixels = 1010; // width of element
+const modalClassError = 'modal_animation_error';
 
+/* STORAGE */
+let isStorageSupport = true;
+let storageLogin = null;
+const storageLoginKey = 'user-login';
+try {
+  storageLogin = localStorage.getItem(storageLoginKey);
+} catch (err) {
+  isStorageSupport = false;
+}
 
-
+/* MODAL Variables */
+const modalClassActive = 'modal_display_block';
 
 /* SLIDER CONTROLLER  */
 function setSliderFrame({ target }) {
@@ -30,6 +41,34 @@ function clearActiveClass(items, activeClassName) {
   }
 }
 
+function checkFormValid(form, evt) {
+  let inputs = form.querySelectorAll('input');
+  inputs = [...form.querySelectorAll('textarea'), ...inputs];
+    
+  let isFormWritenCorrect = true;
+
+  for (const inputNode of inputs) {
+    if (!inputNode.validity.valid) {
+      isFormWritenCorrect = false;
+      break;
+    }
+  }
+
+  if (isFormWritenCorrect) return; // STOP
+
+  evt.preventDefault();
+
+  form.classList.remove(modalClassError);
+  form.offsetWidth = form.offsetWidth;
+  form.classList.add(modalClassError);
+}
+
+function closeAllPopups(popups) {
+  for (const popup of popups) {
+    popup.classList.remove(modalClassActive);
+  }
+}
+
 // MAIN
 function init() {
   console.log('js inited');
@@ -40,8 +79,6 @@ function init() {
   const activeClassName = 'services__item_active';
   const serviceItems = document.getElementsByClassName('services__item');
 
-  /* MODAL Variables */
-  const modalActiveClass = 'modal_display_block';
 
   /* MODAL MAP NODES */
   const mapPopup =      document.querySelector('.modal__map-popup');
@@ -52,12 +89,16 @@ function init() {
   const formPopup =       document.querySelector('.modal__wrtite-us');
   const formButtonOpen =  document.querySelector('.information__write-us-button');
   const formButtonClose = formPopup.querySelector('.modal__close');
+  const formButtonSend = formPopup.querySelector('.btn');
+  const [formFirstInput, formSecondInput] = formPopup.querySelectorAll('input');
+  
+ 
 
-
+  //console.log(formPopup.querySelector('input'))
 
   /* EVENTS */
 
-  /* services events */
+  /* SERVICES events */
   for (const item of serviceItems) {
     item.addEventListener('click', (evt) => {
       clearActiveClass(serviceItems, activeClassName)
@@ -65,33 +106,77 @@ function init() {
     })
   }
 
-  /* modal-map events */
+  /* MODAL-MAP events */
   //      OPEN
   mapButtonOpen.addEventListener('click', (evt) => {
     evt.preventDefault();
     
-    mapPopup.classList.add(modalActiveClass);
+    mapPopup.classList.add(modalClassActive);
   })
   //     CLOSE
   mapButtonClose.addEventListener('click', (evt) => {
     evt.preventDefault();
     
-    mapPopup.classList.remove(modalActiveClass);
+    mapPopup.classList.remove(modalClassActive);
   })
 
-  /* modal-form events */
+  /* MODAL-FORM events */
   //      OPEN
   formButtonOpen.addEventListener('click', (evt) => {
     evt.preventDefault();
     
-    formPopup.classList.add(modalActiveClass);
+    formPopup.classList.add(modalClassActive);
+
+    if (isStorageSupport && storageLogin) {
+      formFirstInput.value = storageLogin;
+      formSecondInput.focus();
+    } else {
+      formFirstInput.focus();
+    }
   })
   //     CLOSE
   formButtonClose.addEventListener('click', (evt) => {
     evt.preventDefault();
     
-    formPopup.classList.remove(modalActiveClass);
+    formPopup.classList.remove(modalClassActive);
   })
+  //     PRE-SUMBMIT
+  formButtonSend.addEventListener(
+    'click', 
+    (evt) => checkFormValid(formPopup, evt)
+  )
+  //     SUBMIT
+  
+  formPopup.addEventListener('submit', (evt) => {
+    localStorage.setItem(storageLoginKey, formFirstInput.value);
+    formPopup.classList.remove(modalClassActive);
+  })
+
+  /* CLOSE ALL FORMS */
+  //        BY CLICK OUT OF MODAL
+  window.addEventListener('click', (evt) => {
+    let isModalClick = false
+
+    for (const path of evt.path) {
+      if (path.classList && path.classList.contains('modal')) {
+        isModalClick = true;
+        break;
+      }
+    }
+
+    if (!isModalClick) {
+      closeAllPopups([formPopup, mapPopup])
+    }
+  }, true)
+
+  // BY PRESS 'ESCAPE' ON KEYBOARD
+  window.addEventListener("keydown", function (evt) {
+    if (evt.keyCode === 27) {
+      evt.preventDefault();
+      
+      closeAllPopups([formPopup, mapPopup])
+    }
+  });
 
 }
 
