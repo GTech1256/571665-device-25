@@ -182,8 +182,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
   z-index: 100;
 }
-.modal__active {
+.modal_display_block {
   display: block;
+}
+
+.modal_error {
+  animation: shake 0.6s;
 }
 
 .modal .btn {
