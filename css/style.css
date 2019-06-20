@@ -224,7 +224,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   transform: translate(-50%,-50%) rotate(-45deg);
 }
 
-.modal__wrtite-us {
+.modal_wrtite-us {
   padding: 100px 100px 75px 100px;
 }
 
