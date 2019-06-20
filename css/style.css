@@ -733,19 +733,19 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   letter-spacing: -0.5px;
 }
 
-.page-footer_interactive {
+.page-footer__interactive {
   opacity: 1;
   transition: opacity .3s;
 }
-.page-footer_interactive[href] {
+.page-footer__interactive[href] {
   cursor: pointer;
 }
 
-.page-footer_interactive[href]:hover,
-.page-footer_interactive[href]:focus {
+.page-footer__interactive[href]:hover,
+.page-footer__interactive[href]:focus {
   opacity: .6;
 }
-.page-footer_interactive[href]:active {
+.page-footer__interactive[href]:active {
   opacity: .3;
 }
 
