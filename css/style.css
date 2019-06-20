@@ -246,6 +246,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   left: 0;
   right: 0;
   bottom: 0;
+
+  border: none;
 }
 
 .modal__form-inlet {

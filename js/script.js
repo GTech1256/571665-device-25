@@ -81,12 +81,12 @@ function init() {
 
 
   /* MODAL MAP NODES */
-  const mapPopup =      document.querySelector('.modal__map-popup');
+  const mapPopup =      document.querySelector('.modal_map-popup');
   const mapButtonOpen = document.querySelector('.information__map-link');
   const mapButtonClose = mapPopup.querySelector('.modal__close');
   
   /* MODAL FORM NODES */
-  const formPopup =       document.querySelector('.modal__wrtite-us');
+  const formPopup =       document.querySelector('.modal_wrtite-us');
   const formButtonOpen =  document.querySelector('.information__write-us-button');
   const formButtonClose = formPopup.querySelector('.modal__close');
   const formButtonSend = formPopup.querySelector('.btn');
