@@ -852,6 +852,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   line-height: 30px;
   color: #464646;
 
+  margin: 0;
   margin-bottom: 41px;
 }
 
