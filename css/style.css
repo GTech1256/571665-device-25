@@ -29,7 +29,7 @@ font: 400 15px/30px 'Open Sans', Tahoma, sans-serif;
     url('../fonts/web/gilroylight.woff2') format('woff2'),
     url('../fonts/web/gilroylight.woff') format('woff'),
     url('../fonts/web/gilroylight.ttf') format('ttf'),
-    url('../fonts/web/gilroylight.eot') format('eot'),
+    url('../fonts/web/gilroylight.eot') format('eot')
 }
 
 @font-face {
@@ -40,7 +40,7 @@ font: 400 15px/30px 'Open Sans', Tahoma, sans-serif;
     url('../fonts/web/gilroyextrabold.woff2') format('woff2'),
     url('../fonts/web/gilroyextrabold.woff') format('woff'),
     url('../fonts/web/gilroyextrabold.ttf') format('ttf'),
-    url('../fonts/web/gilroyextrabold.eot') format('eot'),
+    url('../fonts/web/gilroyextrabold.eot') format('eot')
 }
 
 /* START GLOBAL_STYLES */
@@ -56,6 +56,7 @@ body {
 }
 img { 
   max-width: 100%;
+  height: auto;
 }
 a { 
   text-decoration: none;
@@ -575,6 +576,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 }
 
+.page-footer .visually-hidden {
+  position: absolute;
+}
+
 .page-footer__wrapper {
   display: flex;
 
@@ -585,7 +590,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   margin: 0 auto;
 }
 
-.page-footer__wrapper section {
+.page-footer__wrapper .page-footer__section-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -593,7 +598,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   margin-bottom: 56px;
 }
 
-.page-footer__wrapper section:first-child {
+.page-footer__wrapper .page-footer__section-wrapper:first-child {
   margin-bottom: 22px;
 }
 
@@ -626,7 +631,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .page-footer__user-panel-element {
   position: relative;
-  
+
   transition: opacity .3s;
   opacity: .7;
 
@@ -825,13 +830,31 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
   transition: margin .3s;
 }
+.slider__image-wrapper {
+  width: 564px;
+  height: 500px;
+}
 
 .slider__image {
   display: block;
-  width: 564px;
-  height: 500px;
+  margin: auto;
 
   object-fit: contain;
+}
+
+.slider__item:nth-child(1) .slider__image {
+  width: 384px;
+  height: 486px;
+}
+.slider__item:nth-child(2) .slider__image {
+  width: 345px;
+  height: 485px;
+  margin-top: 10px;
+}
+.slider__item:nth-child(3) .slider__image {
+  width: 526px;
+  height: 334px;
+  margin-top: 66px;
 }
 
 .slider__number {
@@ -865,12 +888,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 .slider__more {
-  margin-bottom: 46px;
+  margin-bottom: 48px;
 }
 
 .slider__table-wrapper {
   max-width: 100%;
   overflow: auto;
+  margin-left: -5px;
 }
 
 .slider__table-head { 
@@ -984,6 +1008,29 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .populars__image-wrapper img { 
   margin: auto;
   transition: opacity .3s;
+  width: 95px;
+  height: 55px;
+}
+
+.populars__item:nth-child(2) img {
+  width: 87px;
+  height: 203px;
+}
+.populars__item:nth-child(3) img {
+  width: 70px;
+  height: 166px;
+}
+.populars__item:nth-child(4) img {
+  width: 108px;
+  height: 169px;
+}
+.populars__item:nth-child(5) img {
+  width: 56px;
+  height: 166px;
+}
+.populars__item:nth-child(6) img {
+  width: 132px;
+  height: 171px;
 }
 
 .populars__sub {
@@ -1016,6 +1063,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .services__wrapper {
   display: flex;
+  flex: 1 0 auto;
   width: 1160px;
   margin: 0 auto;
   padding-bottom: 69px;
@@ -1028,6 +1076,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   margin: 0;
 
   width: 283px;
+  flex-shrink: 0;
   
   border-right: 7px solid black;
 }
@@ -1073,6 +1122,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   margin: 0;
   padding: 0;
   display: flex;
+  flex: 1 0 auto;
   overflow: hidden;
   width: 1010px;
 }
@@ -1128,6 +1178,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .brands a {
   filter: grayscale(1);
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
   transition: filter .3s;
 }
 .brands a:hover, 
@@ -1756,6 +1808,12 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
   padding: 0;
 
   list-style: none;
+
+  flex: auto;
+}
+
+.content__item {
+  min-width: 360px
 }
 
 .content__item + .content__item:not(:nth-last-child(-n+2)) {

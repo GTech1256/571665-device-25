@@ -1,24 +1,42 @@
-const firstServiceDescription = document.getElementsByClassName('services__desc-item')[0]
-const servicesStepPixels = 1010; // width of element
-const modalClassError = 'modal_animation_error';
+var firstServiceDescription = document.getElementsByClassName('services__desc-item')[0]
+var servicesStepPixels = 1010; // width of element
+var modalClassError = 'modal_animation_error';
+
+/* MODAL Variables */
+var modalClassActive = 'modal_display_block';
 
 /* STORAGE */
-let isStorageSupport = true;
-let storageLogin = null;
-const storageLoginKey = 'user-login';
+var isStorageSupport = true;
+var storageLogin = null;
+var storageLoginKey = 'user-login';
 try {
   storageLogin = localStorage.getItem(storageLoginKey);
 } catch (err) {
   isStorageSupport = false;
 }
 
-/* MODAL Variables */
-const modalClassActive = 'modal_display_block';
+/* CHECK IE11 */
+function checkIsIEEleven() {
+  var sAgent = window.navigator.userAgent;
+  var Idx = sAgent.indexOf("MSIE");
+
+  // If IE, return version number.
+  if (Idx > 0) 
+    return parseInt(sAgent.substring(Idx+ 5, sAgent.indexOf(".", Idx)));
+
+  // If IE 11 then look for Updated user agent string.
+  else if (!!navigator.userAgent.match(/Trident\/7\./)) 
+    return 11;
+
+  else
+    return 0; //It is not IE
+}
+var isIEElevenVariable = checkIsIEEleven();
 
 /* SLIDER CONTROLLER  */
-function setSliderFrame({ target }) {
-
-  const firstNodeOfSlider = document.getElementsByClassName('slider__item')[0];
+function setSliderFrame(evt) {
+  var target = evt.target;
+  var firstNodeOfSlider = document.getElementsByClassName('slider__item')[0];
 
   // if target !== input[type=radio,data-slider-number="1"]
   if (!target.classList.contains('slider__nav-item') && !target.dataset.sliderNumber) {
@@ -26,29 +44,29 @@ function setSliderFrame({ target }) {
   }
 
 
-  firstNodeOfSlider.style.marginLeft = `-${(target.dataset.sliderNumber -1) * 1160}px`;
+  firstNodeOfSlider.style.marginLeft = '-' + (target.dataset.sliderNumber -1) * 1160 + 'px';
 }
 
 /* SERVICES CONTROLLER */
-function setServiceSlider({ target }, activeClassName) {
-  target.classList.add(activeClassName);
-  firstServiceDescription.style.marginLeft = `-${target.dataset.counter * servicesStepPixels}px`;
+function setServiceSlider(evt, activeClassName) {
+  evt.target.classList.add(activeClassName);
+  firstServiceDescription.style.marginLeft = '-' + evt.target.dataset.counter * servicesStepPixels + 'px';
 }
 
 function clearActiveClass(items, activeClassName) {
-  for (const item of items) {
-    item.classList.remove(activeClassName);
+  for (var i = 0; i < items.length; i++) {
+    items[i].classList.remove(activeClassName);
   }
 }
 
-function checkFormValid(form, evt) {
-  let inputs = form.querySelectorAll('input');
-  inputs = [...form.querySelectorAll('textarea'), ...inputs];
+function checkFormValid(formNode, evt) {
+  var inputs = [].slice.call(formNode.querySelectorAll('input'));
+  inputs = inputs.concat([].slice.call(formNode.querySelectorAll('textarea')));
     
-  let isFormWritenCorrect = true;
+  var isFormWritenCorrect = true;
 
-  for (const inputNode of inputs) {
-    if (!inputNode.validity.valid) {
+  for (var i = 0; i < inputs.length; i++) {
+    if (!inputs[i].validity.valid) {
       isFormWritenCorrect = false;
       break;
     }
@@ -58,14 +76,16 @@ function checkFormValid(form, evt) {
 
   evt.preventDefault();
 
-  form.classList.remove(modalClassError);
-  form.offsetWidth = form.offsetWidth;
-  form.classList.add(modalClassError);
+  formNode.classList.remove(modalClassError);
+  formNode.offsetWidth = formNode.offsetWidth;
+
+  formNode.classList.add(modalClassError);
+
 }
 
 function closeAllPopups(popups) {
-  for (const popup of popups) {
-    popup.classList.remove(modalClassActive);
+  for (var i = 0; i < popups.length; i++) {
+    popups[i].classList.remove(modalClassActive);
   }
 }
 
@@ -76,31 +96,47 @@ function init() {
     .getElementsByClassName('slider__nav')[0]
     .addEventListener('click', setSliderFrame);
 
-  const activeClassName = 'services__item_active';
-  const serviceItems = document.getElementsByClassName('services__item');
+  var activeClassName = 'services__item_active';
+  var serviceItems = document.getElementsByClassName('services__item');
 
 
   /* MODAL MAP NODES */
-  const mapPopup =      document.querySelector('.modal_map-popup');
-  const mapButtonOpen = document.querySelector('.information__map-link');
-  const mapButtonClose = mapPopup.querySelector('.modal__close');
+  var mapPopup =      document.querySelector('.modal_map-popup');
+  var mapButtonOpen = document.querySelector('.information__map-link');
+  var mapButtonClose = mapPopup.querySelector('.modal__close');
   
   /* MODAL FORM NODES */
-  const formPopup =       document.querySelector('.modal_wrtite-us');
-  const formButtonOpen =  document.querySelector('.information__write-us-button');
-  const formButtonClose = formPopup.querySelector('.modal__close');
-  const formButtonSend = formPopup.querySelector('.btn');
-  const [formFirstInput, formSecondInput] = formPopup.querySelectorAll('input');
-  
+  var formPopup =       document.querySelector('.modal_wrtite-us');
+  var formButtonOpen =  document.querySelector('.information__write-us-button');
+  var formButtonClose = formPopup.querySelector('.modal__close');
+  var formButtonSend = formPopup.querySelector('.btn');
+  var formInputs = formPopup.querySelectorAll('input');
+  var formFirstInput = formInputs[0];
+  var formSecondInput = formInputs[1];
  
 
   //console.log(formPopup.querySelector('input'))
 
   /* EVENTS */
 
+  /* IF IE11 filter:grayscale not work */
+  if (isIEElevenVariable) {
+    var brands = document.querySelectorAll('.brands img');
+
+    for (var i = 0; i < brands.length; i++) {
+      brands[i].src = brands[i].dataset.source + 'gray.' + brands[i].dataset.imgType;
+      brands[i].addEventListener('mouseover', function(evt) {
+        evt.target.src = evt.target.dataset.source + '.' + evt.target.dataset.imgType;
+      })
+      brands[i].addEventListener('mouseout', function(evt) {
+        evt.target.src = evt.target.dataset.source + 'gray.' + evt.target.dataset.imgType;
+      })
+    }
+  }
+
   /* SERVICES events */
-  for (const item of serviceItems) {
-    item.addEventListener('click', (evt) => {
+  for (var i = 0; i < serviceItems.length; i++) {
+    serviceItems[i].addEventListener('click', function(evt) {
       clearActiveClass(serviceItems, activeClassName)
       setServiceSlider(evt, activeClassName)
     })
@@ -108,13 +144,13 @@ function init() {
 
   /* MODAL-MAP events */
   //      OPEN
-  mapButtonOpen.addEventListener('click', (evt) => {
+  mapButtonOpen.addEventListener('click', function (evt) {
     evt.preventDefault();
     
     mapPopup.classList.add(modalClassActive);
   })
   //     CLOSE
-  mapButtonClose.addEventListener('click', (evt) => {
+  mapButtonClose.addEventListener('click', function (evt) {
     evt.preventDefault();
     
     mapPopup.classList.remove(modalClassActive);
@@ -122,7 +158,7 @@ function init() {
 
   /* MODAL-FORM events */
   //      OPEN
-  formButtonOpen.addEventListener('click', (evt) => {
+  formButtonOpen.addEventListener('click', function (evt) {
     evt.preventDefault();
     
     formPopup.classList.add(modalClassActive);
@@ -135,7 +171,7 @@ function init() {
     }
   })
   //     CLOSE
-  formButtonClose.addEventListener('click', (evt) => {
+  formButtonClose.addEventListener('click', function (evt) {
     evt.preventDefault();
     
     formPopup.classList.remove(modalClassActive);
@@ -143,22 +179,26 @@ function init() {
   //     PRE-SUMBMIT
   formButtonSend.addEventListener(
     'click', 
-    (evt) => checkFormValid(formPopup, evt)
+    function (evt) { checkFormValid(formPopup, evt) }
   )
   //     SUBMIT
   
-  formPopup.addEventListener('submit', (evt) => {
+  formPopup.addEventListener('submit', function (evt) {
     localStorage.setItem(storageLoginKey, formFirstInput.value);
     formPopup.classList.remove(modalClassActive);
   })
 
   /* CLOSE ALL FORMS */
   //        BY CLICK OUT OF MODAL
-  window.addEventListener('click', (evt) => {
-    let isModalClick = false
+  window.addEventListener('click', function (evt) {
+    var isModalClick = false
 
-    for (const path of evt.path) {
-      if (path.classList && path.classList.contains('modal')) {
+    var path = evt.path || (evt.composedPath && evt.composedPath());
+
+    if (!path) return // IE11 broken
+
+    for (var i = 0; i < path.length; i++) {
+      if (path[i].classList && path[i].classList.contains('modal')) {
         isModalClick = true;
         break;
       }
@@ -185,3 +225,4 @@ if (document.readyState !== 'loading') {
 } else {
   document.addEventListener('DOMContentLoaded', init);
 }
+
