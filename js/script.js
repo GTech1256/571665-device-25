@@ -85,8 +85,24 @@ function checkFormValid(formNode, evt) {
 
 function closeAllPopups(popups) {
   for (var i = 0; i < popups.length; i++) {
+    /*
     popups[i].classList.remove(modalClassActive);
+    popups[i].classList.remove(modalClassError);
+    */
+    closeModal({ preventDefault: function () {} }, popups[i])
   }
+}
+
+/**
+ * 
+ * @param {Event} evt 
+ * @param {HTMLNode} modal 
+ */
+function closeModal(evt, modal) {
+  evt.preventDefault()
+
+  modal.classList.remove(modalClassActive);
+  modal.classList.remove(modalClassError);
 }
 
 // MAIN
@@ -150,10 +166,8 @@ function init() {
     mapPopup.classList.add(modalClassActive);
   })
   //     CLOSE
-  mapButtonClose.addEventListener('click', function (evt) {
-    evt.preventDefault();
-    
-    mapPopup.classList.remove(modalClassActive);
+  mapButtonClose.addEventListener('click', function (evt) {    
+    closeModal(evt, mapPopup)
   })
 
   /* MODAL-FORM events */
@@ -172,11 +186,9 @@ function init() {
   })
   //     CLOSE
   formButtonClose.addEventListener('click', function (evt) {
-    evt.preventDefault();
-    
-    formPopup.classList.remove(modalClassActive);
+    closeModal(evt, formPopup);
   })
-  //     PRE-SUMBMIT
+  //     PRE-SUBMIT
   formButtonSend.addEventListener(
     'click', 
     function (evt) { checkFormValid(formPopup, evt) }
@@ -185,7 +197,10 @@ function init() {
   
   formPopup.addEventListener('submit', function (evt) {
     localStorage.setItem(storageLoginKey, formFirstInput.value);
-    formPopup.classList.remove(modalClassActive);
+    closeModal(evt, formPopup);
+
+    // RESET FORM
+    formPopup.querySelector('form').reset();
   })
 
   /* CLOSE ALL FORMS */
