@@ -590,7 +590,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   margin: 0 auto;
 }
 
-.page-footer__wrapper .page-footer__section-wrapper {
+.page-footer__section-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -598,7 +598,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   margin-bottom: 56px;
 }
 
-.page-footer__wrapper .page-footer__section-wrapper:first-child {
+.page-footer__section-wrapper_margin_smaller {
   margin-bottom: 22px;
 }
 
@@ -769,7 +769,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 /* styles by page */
 
 .index-page .page-header {
-  height: 300px;
+  height: 301px;
 }
 /* END GLOBAL_STYLES */
 
@@ -1663,8 +1663,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
   top: 28px;
 
-  height: 30px;
-  font: 400 14px/10px Gilroy, Tahoma, sans-serif;
+  font: 400 14px/18px Gilroy, Tahoma, sans-serif;
 
   color: #cecece;
 }
@@ -1678,8 +1677,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   top: 0px;
 
   width: 60px;
-
-  height: 10px;
 
   color: #cecece;
   background: transparent;
@@ -1742,47 +1739,60 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
   content: "";
 
   position: absolute;
-  left: 0;
+  left: -1px;
   top: 50%;
   transform: translateY(-50%);
 
   display: block;
   
-  width: 24px;
-  height: 24px;  
+  width: 23px;
+  height: 23px; 
 
   transition: opacity .3s;
 }
 
+.filters__bluetooth .filters__label::before {
+  width: 25px;
+  height: 25px;
+}
+.filters__bluetooth .filters__label::after {
+ left: 7px;
+}
+
 .filters__label::after {
   opacity: 0;
-  /*
-  left: 3px;
-  top: 42%
-  */
+  left: -2px;
+  top: 10px;
+  width: 28px;
+  height: 28px;
 }
 
 /* modifcs */
 .filters__label_checkbox::before, 
 .filters__label_checkbox::after {
   background: url(../img/icons/checkbox-off.svg) center center no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 .filters__label_checkbox::after {
   background-image: url('../img/icons/checkbox-on-line.svg');
 }
 .filters__label_round::before, 
 .filters__label_round::after {
-  border: 4px solid black;
+  border: 4px solid #000;
   border-radius: 50%;
 }
 .filters__label_round::after {
-  width: 0;
-  height: 0;
-  
+  width: 9px;
+  height: 9px;
+
   top: 50%;
   left: 8px;
+
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
+  
+  background-color: #000;
+  border: none;
 }
 
 .filters__label_checkbox::after {
