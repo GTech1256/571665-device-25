@@ -107,7 +107,7 @@ function closeModal(evt, modal) {
 
 // MAIN
 function init() {
-  console.log('js inited');
+  // console.log('js inited');
   document
     .getElementsByClassName('slider__nav')[0]
     .addEventListener('click', setSliderFrame);
