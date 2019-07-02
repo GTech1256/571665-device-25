@@ -828,7 +828,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   flex: 1160px 0 0;
 
 
-  transition: margin .3s;
+  /*transition: margin .3s;*/
 }
 .slider__image-wrapper {
   width: 564px;
@@ -1138,7 +1138,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
   background: 674px 86px no-repeat;
 
-  transition: margin .3s;
+  /*transition: margin .3s;*/
 }
 .services__desc-item_delivery-icon {
   background-image: url('../img/icons/delivery.svg');
