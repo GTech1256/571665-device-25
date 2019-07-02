@@ -1122,19 +1122,25 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   margin: 0;
   padding: 0;
   display: flex;
-  flex: 1 0 auto;
+  flex: 1010px 0 auto;
   overflow: hidden;
   width: 1010px;
+  min-width: 1010px;
+  max-width: 1010px;
 }
 
 .services__desc-item {
   position: relative;
 
   width: inherit;
+  max-width: inherit;
 
   flex: 1010px 0 0;
 
   padding: 85px 64px 0px 117px;
+
+  box-sizing: border-box;
+  
 
   background: 674px 86px no-repeat;
 
