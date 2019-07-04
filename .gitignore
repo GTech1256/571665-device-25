@@ -11,6 +11,7 @@ npm-debug.*
 Thumbs.db
 
 .stylelintrc.json
+package-lock.json
 
 # favicons
 browserconfig.xml
