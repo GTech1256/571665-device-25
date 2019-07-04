@@ -13,6 +13,8 @@ Thumbs.db
 .stylelintrc.json
 package-lock.json
 
+preview/
+
 # favicons
 browserconfig.xml
 favicon*
