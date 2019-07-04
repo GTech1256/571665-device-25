@@ -1123,9 +1123,13 @@ input[type="search"]::-webkit-search-results-decoration {
 .services__wrapper {
   display: flex;
   flex: 1 0 auto;
+
   width: 1160px;
+
   margin: 0 auto;
   padding-bottom: 69px;
+
+  overflow: hidden;
 }
 
 
