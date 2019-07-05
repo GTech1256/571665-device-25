@@ -22,9 +22,9 @@ font: 400 15px/30px 'Open Sans', Tahoma, sans-serif;
 */
 
 @font-face {
+  font-weight: 400;
   font-family: "Gilroy";
   font-style: normal;
-  font-weight: 400;
   src: local("Gilroy Light"),
     url("../fonts/web/gilroylight.woff2") format("woff2"),
     url("../fonts/web/gilroylight.woff") format("woff"),
@@ -33,9 +33,9 @@ font: 400 15px/30px 'Open Sans', Tahoma, sans-serif;
 }
 
 @font-face {
+  font-weight: 800;
   font-family: "Gilroy";
   font-style: normal;
-  font-weight: 800;
   src: local("Gilroy Extra Bold"),
     url("../fonts/web/gilroyextrabold.woff2") format("woff2"),
     url("../fonts/web/gilroyextrabold.woff") format("woff"),
@@ -52,10 +52,9 @@ html {
 body {
   margin: 0;
 
+  color: #000000;
   font: 400 15px/30px "Open Sans", "Tahoma", sans-serif;
   letter-spacing: 0.01em;
-
-  color: #000000;
 }
 
 img {
@@ -64,8 +63,9 @@ img {
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+
+  text-decoration: none;
 }
 
 
@@ -77,10 +77,12 @@ a {
 
 .visually-hidden {
   position: absolute;
-  clip: rect(0 0 0 0);
+
   width: 1px;
   height: 1px;
   margin: -1px;
+
+  clip: rect(0 0 0 0);
 }
 
 /* REMOVE INPUT[SEARCH] CROSS*/
@@ -135,27 +137,23 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .btn {
   position: relative;
-  display: block;
+  z-index: 1;
 
+  display: block;
+  box-sizing: border-box;
+  padding: 9px 0;
 
   font: 800 18px/24px "Gilroy", "Tahoma", sans-serif;
   letter-spacing: 3.5px;
-
-  outline: none;
-  border: none;
-  background: transparent;
-
-  text-transform: uppercase;
   text-align: center;
+  text-transform: uppercase;
 
-  padding: 9px 0;
-
-  box-sizing: border-box;
-
-  transition: color 0.3s;
+  background: transparent;
+  border: none;
+  outline: none;
   cursor: pointer;
 
-  z-index: 1;
+  transition: color 0.3s;
 }
 
 .btn_small {
@@ -171,24 +169,23 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .btn::before {
-  content: "";
-
-  text-align: center;
-  line-height: inherit;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  bottom: 18px;
+  left: 0;
+  z-index: -1;
 
   display: block;
 
-  position: absolute;
-  top: 18px;
-  bottom: 18px;
-  left: 0;
-  right: 0;
+  line-height: inherit;
+  text-align: center;
 
   background: #f0c52e;
 
   transition: top 0.3s, bottom 0.3s;
 
-  z-index: -1;
+  content: "";
 }
 
 .btn:hover::before,
@@ -203,23 +200,24 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /* MODAL */
 .modal {
-  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  z-index: 100;
 
+  display: none;
   width: 960px;
   height: 553px;
 
   background: #ffffff;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
-  z-index: 100;
+  transform: translate(-50%, -50%);
 }
 
 .modal_display_block {
   display: block;
+
   animation: bounce 0.6s;
 }
 
@@ -235,34 +233,32 @@ input[type="search"]::-webkit-search-results-decoration {
   position: absolute;
   top: 23px;
   right: 23px;
-  font-size: 0;
-
-  border: 0;
-  border-radius: 50%;
-  background: #f7e296;
+  z-index: 10;
 
   width: 55px;
   height: 55px;
 
-  z-index: 10;
+  font-size: 0;
 
+  background: #f7e296;
+  border: 0;
+  border-radius: 50%;
   cursor: pointer;
 }
 
 .modal__close::before,
 .modal__close::after {
-  content: "";
-
   position: absolute;
   top: 50%;
   left: 50%;
-
-  transform: translate(-50%, -50%) rotate(45deg);
 
   width: 29px;
   height: 2px;
 
   background: #ffffff;
+  transform: translate(-50%, -50%) rotate(45deg);
+
+  content: "";
 }
 
 .modal__close::after {
@@ -282,9 +278,9 @@ input[type="search"]::-webkit-search-results-decoration {
 .modal__map {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
 
   border: none;
 }
@@ -295,30 +291,36 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .modal__form-inlet_long {
-  width: 100%;
   display: block;
-  padding-top: 40px;
+
+  width: 100%;
+
   margin-bottom: 35px;
+  padding-top: 40px;
 }
 
 .modal__form-inlet label {
-  font: 800 18px/24px "Gilroy", "Tahoma", sans-serif;
   display: block;
 
   margin-bottom: 10px;
+
+  font: 800 18px/24px "Gilroy", "Tahoma", sans-serif;
 }
 
 .modal__form-inlet input,
 .modal__form-inlet textarea {
-  background: rgba(239, 239, 239, 0.5);
-  border: none;
-  padding: 20px;
   width: 100%;
   height: 50px;
+
+  padding: 20px;
+
+  background: rgba(239, 239, 239, 0.5);
+  border: none;
 }
 
 .modal__form-inlet textarea {
   height: 156px;
+
   resize: none;
 }
 
@@ -337,20 +339,21 @@ input[type="search"]::-webkit-search-results-decoration {
 .page-header__wrapper {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
+  z-index: 3;
+
   padding: 43px 60px;
 
   background-color: #f7e296;
-  z-index: 3;
 }
 
 .page-header__logo {
   position: absolute;
-  left: 0;
   top: -20px;
-
+  left: 0;
   z-index: 10;
+
   display: block;
 
   margin-left: 60px;
@@ -376,38 +379,37 @@ input[type="search"]::-webkit-search-results-decoration {
   right: 0;
   bottom: 0;
 
-  background: transparent;
-  border: 2px solid #000000;
-  color: #000000;
-
   padding: 5px 10px;
 
+  color: #000000;
   font: inherit;
 
+  background: transparent;
+  border: 2px solid #000000;
   opacity: 0;
+
   transition: opacity 0.3s, background-color 0.2s, color 0.2s;
 }
 
 .page-header__search input {
-  background: transparent url("../img/icons/search.svg") no-repeat left center;
-
-  outline: none;
-  border: none;
-  border-bottom: 2px solid transparent;
+  width: 441px;
 
   padding: 7px 38px;
 
-  width: 441px;
+  background: transparent url("../img/icons/search.svg") no-repeat left center;
+  border: none;
+  border-bottom: 2px solid transparent;
+  outline: none;
 
   transition: border-color 0.3s;
 }
 
 .page-header__search input::placeholder {
-  transition: opacity 0.3s;
-
   color: #000000;
 
   opacity: 0.3;
+
+  transition: opacity 0.3s;
 }
 
 /* header__search action styles */
@@ -433,8 +435,9 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .page-header__search button:hover,
 .page-header__search button:focus {
-  background-color: #000000;
   color: #ffffff;
+
+  background-color: #000000;
 }
 
 .page-header__search button:active {
@@ -459,26 +462,25 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .page-header__second-nav .page-header__profile-holder {
   position: relative;
+
   margin: 0 auto 0 100px;
-  /*padding-left: 27px;*/
 }
 
 .page-header__profile-holder::before,
 .page-header__compare::before,
 .page-header__basket::before {
-  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
 
   display: block;
-  position: absolute;
-
-  left: 0;
-  top: 50%;
-  transform: translateY(-60%);
-
   width: 13px;
   height: 13px;
 
   background: url("../img/icons/user.svg") no-repeat;
+  transform: translateY(-60%);
+
+  content: "";
 }
 
 .page-header__compare::before {
@@ -492,22 +494,19 @@ input[type="search"]::-webkit-search-results-decoration {
 /* secons nav */
 .page-header__second-nav {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-
-
+  justify-content: space-between;
   margin-bottom: 35px;
 }
 
 .page-header__links {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
 
   font: 800 18px/24px "Gilroy", "Tahoma", sans-serif;
-
-  text-transform: uppercase;
   letter-spacing: 3.5px;
+  text-transform: uppercase;
 }
 
 .page-header__links a:nth-child(2) {
@@ -522,40 +521,38 @@ input[type="search"]::-webkit-search-results-decoration {
 .page-header__links-more {
   position: relative;
 
-  background: transparent;
-  border: none;
-
   padding-right: 28px;
 
+  background: transparent;
+  border: none;
   cursor: pointer;
 }
 
 .page-header__links-more::after {
-  content: "";
-
   position: absolute;
-  right: 0;
   top: 50%;
-  transform: rotate(0deg) translateY(-50%);
+  right: 0;
 
   width: 16px;
   height: 16px;
 
-  opacity: 0.3;
-
   background-image:
     linear-gradient(to bottom, transparent 42%, black 42%, black 58%, transparent  58%),
     linear-gradient(to left, transparent  42%, black 42%, black 58%, transparent  58%);
-
+  transform: rotate(0deg) translateY(-50%);
   transform-origin: 8px 0;
+  opacity: 0.3;
+
   transition: transform 0.5s;
+
+  content: "";
 }
 
 .page-header__links-more-checkbox:focus ~ .page-header__wrapper .page-header__links-more {
+  outline-width: 5px;
+  outline-style: auto;
   outline-color: rgb(77, 144, 254); /* #4D90FE */
   outline-offset: -2px;
-  outline-style: auto;
-  outline-width: 5px;
 }
 
 .page-header__links-more-checkbox:checked ~ .page-header__wrapper .page-header__links-more::after {
@@ -568,32 +565,31 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .page-header__sub-nav {
-  z-index: 2; /* 3*/
   position: absolute;
-
-  left: 0;
-  right: 0;
   top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
 
   height: 129px;
-  background: #f7e296;
-
-  visibility: hidden;
-  transform: translateY(0);
-  transition: transform 0.5s ease-out, visibility 0.5s ease-in;
-
   padding-left: 60px;
+
+  background: #f7e296;
+  transform: translateY(0);
+  visibility: hidden;
+
+  transition: transform 0.5s ease-out, visibility 0.5s ease-in;
 }
 
 .page-header__sub-nav ul {
-  height: inherit;
-
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  list-style: none;
-  padding: 0;
+  flex-wrap: wrap;
+  height: inherit;
   margin: 0;
+  padding: 0;
+
+  list-style: none;
 }
 
 .page-header__sub-nav li {
@@ -621,11 +617,11 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /* FOOTER */
 .page-footer {
-  background-color: #464646;
-
   padding: 64px 0;
 
   color: #ffffff;
+
+  background-color: #464646;
 }
 
 .page-footer .visually-hidden {
@@ -634,9 +630,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .page-footer__wrapper {
   display: flex;
-
-  justify-content: space-between;
   flex-direction: column;
+  justify-content: space-between;
 
   width: 1160px;
   margin: 0 auto;
@@ -644,8 +639,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .page-footer__section-wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 
   margin-bottom: 56px;
 }
@@ -656,44 +651,43 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .page-footer__center {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 430px;
-  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 
   list-style: none;
-
-  padding: 0;
-  margin: 0;
 }
 
 .page-footer__user-panel {
-  max-width: 60%;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-
+  max-width: 60%;
   margin-top: -15px;
 }
 
 .page-footer__user-profile {
-  margin-left: 5px;
   margin-right: 6px;
+  margin-left: 5px;
 }
 
 .page-footer__user-panel-element {
   position: relative;
 
-  transition: opacity 0.3s;
-  opacity: 0.7;
-
   margin-left: 40px;
   padding-left: 20px;
+
+  opacity: 0.7;
+
+  transition: opacity 0.3s;
 }
 
 .page-footer__user-panel-element_logout {
-  padding: 0;
   margin-left: 5px;
+  padding: 0;
+
   opacity: 0.3;
 }
 
@@ -707,29 +701,31 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .page-footer__user-panel-element::before {
-  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
 
   display: block;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-
   width: 13px;
   height: 13px;
 
   background-repeat: no-repeat;
+  transform: translateY(-50%);
+
+  content: "";
 }
 
 .page-footer__user-panel-element_signin::before {
-  background-image: url("../img/icons/user-yellow.svg");
   left: -5px;
+
+  background-image: url("../img/icons/user-yellow.svg");
 }
 
 .page-footer__user-panel-element_compare::before {
-  background-image: url("../img/icons/compare-yellow.svg");
   top: 55%;
   left: 3px;
+
+  background-image: url("../img/icons/compare-yellow.svg");
 }
 
 .page-footer__user-panel-element_basket::before {
@@ -737,31 +733,28 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .page-footer__anchors {
-  text-transform: uppercase;
+  margin-top: 3px;
+  margin-left: -26px;
+
   font: 800 18px/24px "Gilroy", "Tahoma", sans-serif;
   letter-spacing: 4px;
-
-  margin-left: -26px;
-  margin-top: 3px;
+  text-transform: uppercase;
 }
 
 .page-footer__section-line {
+  display: block;
   width: 80px;
   height: 7px;
-
-  display: block;
+  margin: auto 0;
 
   background: #f0c52e;
-
-  margin: auto 0;
 }
 
 .page-footer__social {
-  font-size: 0;
-
   width: 143px;
-
   margin-left: -55px;
+
+  font-size: 0;
 }
 
 .page-footer__soc-icon {
@@ -770,13 +763,13 @@ input[type="search"]::-webkit-search-results-decoration {
   width: 34px;
   height: 34px;
 
-  border: 1px solid #5e5e5e;
-
-  border-radius: 50%;
-  opacity: 0.3;
-  transition: opacity 0.3s;
   background: top center no-repeat;
   background-size: cover;
+  border: 1px solid #5e5e5e;
+  border-radius: 50%;
+  opacity: 0.3;
+
+  transition: opacity 0.3s;
 }
 
 .page-footer__soc-icon:hover,
@@ -802,11 +795,13 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .page-footer__address {
   margin: 0;
+
   letter-spacing: -0.5px;
 }
 
 .page-footer__interactive {
   opacity: 1;
+
   transition: opacity 0.3s;
 }
 
@@ -847,34 +842,37 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .slider__content {
+  position: relative;
+
+  width: 510px;
   margin-top: 37px;
   margin-left: 36px;
-  width: 510px;
-  position: relative;
 }
 
 .slider__content::before {
-  content: "";
   position: absolute;
 
   width: 100px;
   height: 7px;
 
   background-color: #ffffff;
+
+  content: "";
 }
 
 .slider__list {
-  list-style: none;
-  padding: 0;
+  display: flex;
   margin: 0;
   margin-top: 13px;
-  display: flex;
-
+  padding: 0;
   overflow: hidden;
+
+  list-style: none;
 }
 
 .slider__item {
   position: relative;
+
   display: flex;
   flex: 1160px 0 0;
 
@@ -912,17 +910,18 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .slider__number {
   position: absolute;
-  right: -1px;
   top: -52px;
+  right: -1px;
 
   margin: 0;
 
-  font: 800 180px/180px "Gilroy", "Tahoma", sans-serif;
   color: #ffffff;
+  font: 800 180px/180px "Gilroy", "Tahoma", sans-serif;
 }
 
 .slider__title {
   position: relative;
+
   font: 800 47px/56px "Gilroy", "Tahoma", sans-serif;
 }
 
@@ -932,12 +931,12 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .slider__desc {
-  font-size: 15px;
-  line-height: 30px;
-  color: #464646;
-
   margin: 0;
   margin-bottom: 41px;
+
+  color: #464646;
+  font-size: 15px;
+  line-height: 30px;
 }
 
 .slider__more {
@@ -946,42 +945,43 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .slider__table-wrapper {
   max-width: 100%;
-  overflow: auto;
   margin-left: -5px;
+  overflow: auto;
 }
 
 .slider__table-head {
   display: table-row-group;
+
   font: 400 13px/20px "Gilroy", "Tahoma", sans-serif;
 }
 
 .slider__table-body {
   display: table-header-group;
+
   font: 400 36px/48px "Gilroy", "Tahoma", sans-serif;
 }
 
 .slider__table td {
   padding: 0;
-  padding-bottom: 8px;
   padding-right: 75px;
+  padding-bottom: 8px;
 }
 
 .slider__nav {
-  display: flex;
   position: absolute;
+  top: 327px;
+  right: 75px;
   z-index: 1;
 
-  right: 75px;
-  top: 327px;
+  display: flex;
 }
 
 .slider__nav-item {
-  display: block;
   position: relative;
 
+  display: block;
   width: 12px;
   height: 12px;
-
   margin: 0 10px;
 
   cursor: pointer;
@@ -993,8 +993,10 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .slider__nav-item span {
   position: absolute;
-  left: 0;
+
   top: 0;
+  left: 0;
+
   width: inherit;
   height: inherit;
 
@@ -1003,22 +1005,21 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .slider__nav-item span::before {
-  content: "";
-
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   width: 4px;
   height: 4px;
 
   border: 1px solid #000000;
   border-radius: 50%;
-
+  transform: translate(-50%, -50%);
   opacity: 0;
 
   transition: opacity 0.3s;
+
+  content: "";
 }
 
 .slider__nav-item input:checked ~ span::before {
@@ -1035,14 +1036,13 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .populars ul {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-
-
-  list-style: none;
-  padding: 0;
+  justify-content: space-between;
   width: 1160px;
   margin: 0 auto;
+  padding: 0;
+
+  list-style: none;
 }
 
 .populars li {
@@ -1051,19 +1051,20 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .populars__image-wrapper {
   display: flex;
-
   width: 160px;
   height: 160px;
+
   background-color: #f7e296;
 
   transition: background-color 0.3s;
 }
 
 .populars__image-wrapper img {
-  margin: auto;
-  transition: opacity 0.3s;
   width: 95px;
   height: 55px;
+  margin: auto;
+
+  transition: opacity 0.3s;
 }
 
 .populars__item:nth-child(2) img {
@@ -1092,9 +1093,11 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .populars__sub {
-  font: 800 18px/24px "Gilroy", "Tahoma", sans-serif;
-  transition: opacity 0.3s;
   margin-top: 33px;
+
+  font: 800 18px/24px "Gilroy", "Tahoma", sans-serif;
+
+  transition: opacity 0.3s;
 }
 
 .populars__item-link:hover .populars__image-wrapper,
@@ -1115,32 +1118,28 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .services {
   width: 100%;
-  background: linear-gradient(transparent 100px, #e5e5e5 100px);
-
   margin-bottom: 95px;
+
+  background: linear-gradient(transparent 100px, #e5e5e5 100px);
 }
 
 .services__wrapper {
   display: flex;
   flex: 1 0 auto;
-
   width: 1160px;
-
   margin: 0 auto;
   padding-bottom: 69px;
-
   overflow: hidden;
 }
 
 
 .services__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  width: 283px;
   flex-shrink: 0;
+  width: 283px;
+  margin: 0;
+  padding: 0;
 
+  list-style: none;
   border-right: 7px solid black;
 }
 
@@ -1157,8 +1156,9 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .services__item {
-  margin-right: 117px;
   z-index: 1;
+
+  margin-right: 117px;
 
   /*text-align: left;
   padding-left: 20px;*/
@@ -1179,35 +1179,35 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .services__item_active::before {
-  background-color: #000000;
   top: 0;
-  bottom: 0;
   right: -120px;
+  bottom: 0;
+
+  background-color: #000000;
 }
 
 .services__desc-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex: 1010px 0 auto;
-  overflow: hidden;
   width: 1010px;
   min-width: 1010px;
   max-width: 1010px;
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  list-style: none;
 }
 
 .services__desc-item {
   position: relative;
 
+  flex: 1010px 0 0;
+  box-sizing: border-box;
   width: inherit;
   max-width: inherit;
-
-  flex: 1010px 0 0;
-
   padding: 85px 64px 0 117px;
-
-  box-sizing: border-box;
 
   background: 674px 86px no-repeat;
 
@@ -1227,30 +1227,30 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .services__desc-title {
-  font: 800 47px/24px "Gilroy", "Tahoma", sans-serif;
-
   margin: 0;
   margin-bottom: 44px;
+
+  font: 800 47px/24px "Gilroy", "Tahoma", sans-serif;
 }
 
 .services__text {
-  margin: 0;
   width: 430px;
+  margin: 0;
 }
 
 /* BRANDS */
 .brands {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
   width: 1160px;
-
   margin: 0 auto;
   margin-bottom: 83px;
 }
 
 .brands a {
   filter: grayscale(1);
+
   transition: filter 0.3s;
 }
 
@@ -1281,16 +1281,12 @@ input[type="search"]::-webkit-search-results-decoration {
   position: relative;
 
   width: 560px;
-
+  margin-bottom: 81px;
   padding-top: 51px;
   padding-bottom: 88px;
-
-  margin-bottom: 81px;
 }
 
 .information__block::before {
-  content: "";
-
   position: absolute;
   top: 0;
   left: 0;
@@ -1299,26 +1295,29 @@ input[type="search"]::-webkit-search-results-decoration {
   height: 7px;
 
   background: #000000;
+
+  content: "";
 }
 
 .information__title-text {
-  font: 800 47px/48px "Gilroy", "Tahoma", sans-serif;
   margin: 0;
   margin-bottom: 43px;
+
+  font: 800 47px/48px "Gilroy", "Tahoma", sans-serif;
 }
 
 .information__sub-text {
-  color: #464646;
+  width: 90%;
   margin: 0;
   margin-bottom: 30px;
+
+  color: #464646;
   letter-spacing: -0.5px;
-  width: 90%;
 }
 
 .information__list {
-  padding: 0;
   margin: 0;
-
+  padding: 0;
   padding-top: 43px;
 
   letter-spacing: -1px;
@@ -1329,40 +1328,34 @@ input[type="search"]::-webkit-search-results-decoration {
 .information__list li {
   position: relative;
 
-  font: 800 18px/24px "Gilroy", "Tahoma", sans-serif;
-
-  padding-left: 35px;
   margin-bottom: 16px;
+  padding-left: 35px;
+
+  font: 800 18px/24px "Gilroy", "Tahoma", sans-serif;
 }
 
 .information__list li::before {
-  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
 
   display: block;
-
-  position: absolute;
-
-  left: 0;
-  top: 50%;
-
-  transform: translateY(-50%);
-
   width: 8px;
   height: 8px;
 
   border: 2px solid #e5e5e5;
-
   border-radius: 50%;
+  transform: translateY(-50%);
+
+  content: "";
 }
 
 .information__image {
   display: block;
   width: 560px;
   height: 231px;
-
-
-  padding-top: 9px;
   margin: 0;
+  padding-top: 9px;
 }
 
 
@@ -1372,33 +1365,33 @@ input[type="search"]::-webkit-search-results-decoration {
 .sub-header {
   width: 1160px;
   margin: auto;
-  padding: 38px 60px;
   margin-bottom: 6px;
+  padding: 38px 60px;
 }
 
 .sub-header__headline {
-  font: 800 47px/48px "Gilroy", "Tahoma", sans-serif;
-  letter-spacing: 0.5px;
   margin: 0;
   margin-bottom: 20px;
+
+  font: 800 47px/48px "Gilroy", "Tahoma", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .breadcrumbs {
   display: flex;
-  list-style: none;
-
-  padding: 0;
   margin: 0;
+  padding: 0;
+
+  list-style: none;
 }
 
 .breadcrumbs__item {
   position: relative;
 
-  letter-spacing: -0.5px;
+  padding-right: 40px;
 
   font-size: 14px;
-
-  padding-right: 40px;
+  letter-spacing: -0.5px;
 }
 
 .breadcrumbs__item a {
@@ -1410,13 +1403,9 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .breadcrumbs__item:not(:last-child)::after {
-  content: "";
-
   position: absolute;
-
-  right: 20px;
   top: 50%;
-
+  right: 20px;
 
   width: 5px;
   height: 5px;
@@ -1424,13 +1413,15 @@ input[type="search"]::-webkit-search-results-decoration {
   border: 1px solid #000000;
   border-bottom: transparent;
   border-left: transparent;
-
   transform: rotate(45deg) translateY(-60%);
+
+  content: "";
 }
 
 
 .catalog-container {
   position: relative;
+
   display: flex;
   width: 1160px;
   margin: 0 auto;
@@ -1440,8 +1431,9 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /* SORT */
 .sort {
-  background: rgba(0, 0, 0, 0.08);
   height: 70px;
+
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .sort__wrapper {
@@ -1456,13 +1448,12 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .sort__title {
-  font: 800 16px/24px "Gilroy", "Tahoma", sans-serif;
-  letter-spacing: 3.5px;
-
-  text-transform: uppercase;
-
   margin: 0;
   margin-right: 50px;
+
+  font: 800 16px/24px "Gilroy", "Tahoma", sans-serif;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
 }
 
 .sort__type {
@@ -1477,15 +1468,12 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .sort__list {
   display: flex;
-
-  list-style: none;
-
   justify-content: space-between;
-
-  padding: 0;
-
   margin: 0;
   margin-top: -5px;
+  padding: 0;
+
+  list-style: none;
 }
 
 .sort__action {
@@ -1495,33 +1483,30 @@ input[type="search"]::-webkit-search-results-decoration {
 .sort__arrow {
   position: relative;
 
-  font-size: 0;
-
   margin-right: 20px;
 
+  font-size: 0;
 
   border: 9px solid #000000;
-
-  border-left-width: 5px;
-  border-right-width: 5px;
-
-  border-left-color: transparent;
   border-right-color: transparent;
-
+  border-right-width: 5px;
+  border-left-color: transparent;
+  border-left-width: 5px;
   opacity: 0.2;
 }
 
 .sort__arrow_up {
-  border-top-color: transparent;
-
   top: -6px;
   left: -3px;
+
+  border-top-color: transparent;
 }
 
 .sort__arrow_down {
-  border-bottom-color: transparent;
   top: 2px;
   left: -4px;
+
+  border-bottom-color: transparent;
 }
 
 .sort__arrow_active {
@@ -1532,14 +1517,15 @@ input[type="search"]::-webkit-search-results-decoration {
 /* FILTERS */
 
 .filters {
-  margin-top: -70px;
-  background: rgba(0, 0, 0, 0.08);
-
   position: absolute;
   top: 0;
   right: 832px;
-  left: -100vw;
   bottom: 0;
+  left: -100vw;
+
+  margin-top: -70px;
+
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .filters label {
@@ -1552,8 +1538,8 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .filters__bluetooth {
-  padding-top: 31px;
   margin-bottom: 23px;
+  padding-top: 31px;
 }
 
 .filters__wrapper {
@@ -1567,22 +1553,22 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .filters__title {
+  margin: 0;
+  margin-bottom: 92px;
+
   font: 800 16px/24px "Gilroy", "Tahoma", sans-serif;
   letter-spacing: 4px;
-  margin: 0;
-
-  margin-bottom: 92px;
   text-transform: uppercase;
 }
 
 .filters__subtitle {
-  font: 800 18px/24px "Gilroy", "Tahoma", sans-serif;
-
-  border-top: 2px solid #000000;
-
   margin: 0;
   margin-bottom: 25px;
   padding-top: 10px;
+
+  font: 800 18px/24px "Gilroy", "Tahoma", sans-serif;
+
+  border-top: 2px solid #000000;
 }
 
 .filters__color .filters__subtitle {
@@ -1596,12 +1582,11 @@ input[type="search"]::-webkit-search-results-decoration {
 .filters__range-wrapper {
   position: relative;
 
+  display: flex;
+  width: 100%;
   height: 45px;
   margin-bottom: 34px;
 
-
-  display: flex;
-  width: 100%;
   background: linear-gradient(to bottom, transparent 10px, #dbdbdb 10px, #dbdbdb 12px, transparent 12px);
 }
 
@@ -1614,71 +1599,58 @@ input[type="search"]::-webkit-search-results-decoration {
   z-index: 3;
 }
 
-.filters__from::before {
-  content: "";
-
+.filters__from::before,
+.filters__to::before {
   position: absolute;
   top: 10px;
   right: 0;
+  z-index: 0;
 
   width: 200px;
   height: 2px;
-  z-index: 0;
 
   background: #ebebeb;
+
+  content: "";
+}
+
+.filters__to::before {
+  background: #91c92f;
 }
 
 .filters__to {
   left: 56%;
 }
 
-.filters__to::before {
-  content: "";
-
-  position: absolute;
-  top: 10px;
-  right: 0;
-
-  width: 200px;
-  height: 2px;
-  z-index: 0;
-
-  background: #91c92f;
-}
-
 .filters__range-button {
   position: absolute;
-
   left: -5px;
+  z-index: 2;
 
   width: 20px;
   height: 20px;
 
+  font-size: 0;
+
   background: #ffffff;
   border: none;
   border-radius: 50%;
-
-  font-size: 0;
-
-  z-index: 2;
-
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
 }
 
 .filters__range-button::after {
-  content: "";
   position: absolute;
-
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   width: 4px;
   height: 4px;
 
   background: #ababab;
-
   border-radius: 50%;
+  transform: translate(-50%, -50%);
+
+  content: "";
 }
 
 .filters__range-button:active {
@@ -1687,12 +1659,10 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .filters__range-label {
   position: absolute;
-
   top: 28px;
 
-  font: 400 14px/18px "Gilroy", "Tahoma", sans-serif;
-
   color: #cecece;
+  font: 400 14px/18px "Gilroy", "Tahoma", sans-serif;
 }
 
 .filters__range-label_to {
@@ -1701,12 +1671,13 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .filters__range-input {
   position: absolute;
-  left: 20px;
   top: 0;
+  left: 20px;
 
   width: 60px;
 
   color: #cecece;
+
   background: transparent;
   border: none;
 }
@@ -1723,10 +1694,11 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .filters__label {
   position: relative;
-  font-size: 14px;
-  line-height: 40px;
 
   padding-left: 40px;
+
+  font-size: 14px;
+  line-height: 40px;
 }
 
 .filters__bluetooth .filters__label {
@@ -1764,19 +1736,19 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
 
 .filters__label::before,
 .filters__label::after {
-  content: "";
-
   position: absolute;
-  left: -1px;
   top: 50%;
-  transform: translateY(-50%);
+  left: -1px;
 
   display: block;
-
   width: 23px;
   height: 23px;
 
+  transform: translateY(-50%);
+
   transition: opacity 0.3s;
+
+  content: "";
 }
 
 .filters__bluetooth .filters__label::before {
@@ -1789,11 +1761,13 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
 }
 
 .filters__label::after {
-  opacity: 0;
-  left: -2px;
   top: 10px;
+  left: -2px;
+
   width: 28px;
   height: 28px;
+
+  opacity: 0;
 }
 
 /* modifcs */
@@ -1810,16 +1784,15 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
 }
 
 .filters__label_round::after {
-  width: 9px;
-  height: 9px;
-
   top: 50%;
   left: 8px;
 
-  transform: translateY(-50%);
+  width: 9px;
+  height: 9px;
 
   background-color: #000000;
   border: none;
+  transform: translateY(-50%);
 }
 
 .filters__label_checkbox::after {
@@ -1833,27 +1806,22 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
 /* CONTENT */
 
 .content {
+  margin-left: 327px;
   padding: 72px;
   padding-top: 70px;
   padding-right: 0;
-
-  margin-left: 327px;
 }
 
 .content__list {
   display: flex;
+  flex: auto;
   flex-wrap: wrap;
-
   justify-content: space-between;
-
+  max-width: 760px;
   margin: 0;
   padding: 0;
 
   list-style: none;
-
-  flex: auto;
-
-  max-width: 760px;
 }
 
 .content__item {
@@ -1871,40 +1839,37 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
 
 .content__action-wrapper {
   position: relative;
+
   width: 360px;
   height: 380px;
-
   margin-bottom: 31px;
 }
 
 .content__item_visible_new .content__action-wrapper::before {
-  content: "";
-
   position: absolute;
-  right: 27px;
   top: 29px;
+  right: 27px;
 
   display: block;
-
   width: 60px;
   height: 60px;
 
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+
+  content: "";
 }
 
 .content__item_visible_new .content__action-wrapper::after {
-  content: "new";
-
   position: absolute;
-  right: 40px;
   top: 48px;
-
-  text-transform: uppercase;
-
-  font: 800 14px/24px "Gilroy", "Tahoma", sans-serif;
+  right: 40px;
 
   color: rgba(0, 0, 0, 0.1);
+  font: 800 14px/24px "Gilroy", "Tahoma", sans-serif;
+  text-transform: uppercase;
+
+  content: "new";
 }
 
 .content__action-wrapper:hover .content__action {
@@ -1914,31 +1879,29 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
 .content__action {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
-
+  left: 0;
   z-index: 1;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 25px;
 
   background-color: rgba(238, 238, 238, 0.7);
-
   opacity: 0;
-  transition: opacity 0.3s;
 
-  padding-top: 25px;
+  transition: opacity 0.3s;
 }
 
 .content__comparison {
-  background: none;
-  border: none;
   margin-top: 25px;
 
-  opacity: 0.5;
+  background: none;
+  border: none;
   cursor: pointer;
+  opacity: 0.5;
 
   transition: opacity 0.3s;
 }
@@ -1963,22 +1926,25 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
 }
 
 .content__title {
-  margin: 0;
   width: 250px;
+  margin: 0;
+
   font: 800 18px/24px "Gilroy", "Tahoma", sans-serif;
 }
 
 .content__price {
   margin: 0;
+
   font: 400 16px/24px "Gilroy", "Tahoma", sans-serif;
 }
 
 /* CONTENT_NAV */
 .content__nav {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+
   font: 800 18px/24px "Gilroy", "Tahoma", sans-serif;
 
   background-color: #ebebeb;
@@ -1986,11 +1952,11 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
 
 
 .content__nav-list {
-  list-style: none;
   display: flex;
-
   margin: 0;
   padding: 0;
+
+  list-style: none;
 }
 
 .content__nav-list li {
@@ -2006,10 +1972,12 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
 }
 
 .content__link_btn {
-  text-transform: uppercase;
   padding: 23px 30px;
-  transition: background-color 0.3s, color 0.3s;
+
   letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .content__link_btn:hover,
@@ -2018,8 +1986,9 @@ input[disabled].filters__input:disabled ~ .filters__label:active ::after {
 }
 
 .content__link_btn:active {
-  background-color: #d9d9d9;
   color: #979797;
+
+  background-color: #d9d9d9;
 }
 
 
