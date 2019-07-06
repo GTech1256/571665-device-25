@@ -107,7 +107,38 @@ function closeModal(evt, modal) {
 
 // MAIN
 function init() {
-  // console.log('js inited');
+  switch (document.location.pathname) {
+    case '/catalog.html':
+      initCatalogHTML()
+      break;
+    case '/index.html':
+      initIndexHTML()
+      break;
+  }
+}
+
+/**
+ * @description init js only in /catalog.html by init()
+ */
+function initCatalogHTML() {
+  /* ADD :focus-within support for /catalog.html */
+  var itemsChildrens = document.querySelectorAll('.content__action button');
+
+  for (var i = 0; i < itemsChildrens.length; i++) {
+    itemsChildrens[i].addEventListener('focus', function (evt) {
+      evt.target.parentElement.classList.add("content__action_display_wrapper");
+    })
+    itemsChildrens[i].addEventListener('blur', function (evt) {
+      evt.target.parentElement.classList.remove("content__action_display_wrapper");
+    })
+  }
+}
+
+/**
+ * @description init js only in /index.html by init()
+ */
+function initIndexHTML() {
+
   document
     .getElementsByClassName('slider__nav')[0]
     .addEventListener('click', setSliderFrame);
@@ -135,8 +166,9 @@ function init() {
 
   /* EVENTS */
 
-  /* IF IE11 filter:grayscale not work */
   if (isIEElevenVariable) {
+
+    /* FIX filter:grayscale */
     var brands = document.querySelectorAll('.brands img');
 
     for (var i = 0; i < brands.length; i++) {
