@@ -112,8 +112,9 @@ function init() {
       initCatalogHTML()
       break;
     case '/index.html':
-      initIndexHTML()
-      break;
+    case '/':
+        initIndexHTML()
+    break;
   }
 }
 
@@ -185,6 +186,13 @@ function initIndexHTML() {
   /* SERVICES events */
   for (var i = 0; i < serviceItems.length; i++) {
     serviceItems[i].addEventListener('click', function(evt) {
+
+      [].forEach.call(serviceItems, function(item) {
+        item.removeAttribute('disabled');
+      })
+
+      evt.target.setAttribute('disabled', true);
+      
       clearActiveClass(serviceItems, activeClassName)
       setServiceSlider(evt, activeClassName)
     })
