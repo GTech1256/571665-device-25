@@ -625,15 +625,17 @@ input[type="search"]::-webkit-search-results-decoration {
   transition: opacity 0.3s;
 }
 
+
+.page-header__links-more:hover,
+.page-header__links-more-checkbox:focus ~ .page-header__wrapper .page-header__links-more,
 .page-header a[href]:hover,
-.page-header a[href]:focus,
-.page-header__links-more[href]:hover,
-.page-header__links-more[href]:focus {
+.page-header a[href]:focus {
   opacity: 0.6;
 }
 
 .page-header a[href]:active,
-.page-header__links-more[href]:active {
+.page-header__links-more-checkbox:active ~ .page-header__wrapper .page-header__links-more,
+.page-header__links-more:active {
   opacity: 0.3;
 }
 

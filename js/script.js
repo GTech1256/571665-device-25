@@ -62,7 +62,6 @@ function checkFormValid(formNode, evt) {
   formNode.offsetWidth = formNode.offsetWidth;
 
   formNode.classList.add(modalClassError);
-
 }
 
 function closeAllPopups(popups) {
@@ -100,8 +99,6 @@ function init() {
     break;
   }
 }
-
-
 
 /**
  * @description init js only in /catalog.html by init()
@@ -146,7 +143,6 @@ function initIndexHTML() {
     activeSlider = target.dataset.sliderNumber - 1;
     setActiveLinkForSliderElement(activeSlider)
 
-
     var firstNodeOfSlider = document.getElementsByClassName('slider__item')[0];  
 
     firstNodeOfSlider.style.marginLeft = '-' + (activeSlider) * 1160 + 'px';
@@ -161,7 +157,7 @@ function initIndexHTML() {
       if (activeSlider === j) {
         sliderLink.setAttribute('href', 'catalog.html');
         continue; // SKIP
-      }; 
+      }
       
       sliderLink.removeAttribute('href');
     }
@@ -219,22 +215,35 @@ function initIndexHTML() {
   if (isIEElevenVariable) {
 
     /* FIX filter:grayscale */
-    var brands = document.querySelectorAll('.brands img');
+    var brands = document.querySelectorAll('.brands a');
 
     for (var i = 0; i < brands.length; i++) {
-      brands[i].src = brands[i].dataset.source + 'gray.' + brands[i].dataset.imgType;
+      var brandImg = brands[i].querySelector('img');
+      brandImg.src = brandImg.dataset.source + 'gray.' + brandImg.dataset.imgType;
+
       brands[i].addEventListener('mouseover', function(evt) {
         evt.target.src = evt.target.dataset.source + '.' + evt.target.dataset.imgType;
       })
+
       brands[i].addEventListener('mouseout', function(evt) {
         evt.target.src = evt.target.dataset.source + 'gray.' + evt.target.dataset.imgType;
+      })
+      
+      brands[i].addEventListener('focus', function(evt) {
+        var target = evt.target.querySelector('img');
+        target.src = target.dataset.source + '.' + target.dataset.imgType;
+      })
+
+      brands[i].addEventListener('blur', function(evt) {
+        var target = evt.target.querySelector('img');
+        target.src = target.dataset.source + 'gray.' + target.dataset.imgType;
       })
     }
   }
 
   /* SERVICES events */
-  for (var i = 0; i < serviceItems.length; i++) {
-    serviceItems[i].addEventListener('click', function(evt) {
+  for (var k = 0; k < serviceItems.length; k++) {
+    serviceItems[k].addEventListener('click', function(evt) {
       // remove attribute disable on all buttons
       enableAllServiceButtons();
       // add [disable] for active button
