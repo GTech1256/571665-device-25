@@ -1,0 +1,45 @@
+{
+  "name": "571665-device-25",
+  "version": "1.0.0",
+  "description": "* Студент: [Роман Бакакин](https://up.htmlacademy.ru/htmlcss/25/user/571665). * Наставник: [Анна Линькова](https://up.htmlacademy.ru/htmlcss/25/user/1015999).",
+  "main": "Gulpfile.js",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "babel-plugin-transform-es2015-typeof-symbol": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^4.0.2",
+    "gulp-autopolyfiller": "^1.2.1",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.2",
+    "stylelint": "^10.1.0",
+    "stylelint-config-htmlacademy": "^0.1.3",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-order": "^3.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GTech1256/571665-device-25.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GTech1256/571665-device-25/issues"
+  },
+  "homepage": "https://github.com/GTech1256/571665-device-25#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4"
+  }
+}
