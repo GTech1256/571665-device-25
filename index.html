@@ -72,18 +72,22 @@
       <section class="slider">
 
         <div class="slider__nav">
-          <label class="slider__nav-item" aria-label="Открыть первый слайд">
-              <input type="radio" name="slider" data-slider-number="1" checked>
+          <input class="visually-hidden slider__input" id="slider-1" type="radio" name="slider" data-slider-number="1" checked>
+          <input class="visually-hidden slider__input" id="slider-2" type="radio" name="slider" data-slider-number="2">
+          <input class="visually-hidden slider__input" id="slider-3" type="radio" name="slider" data-slider-number="3">
+
+          <label class="slider__nav-item" for="slider-1" aria-label="Открыть первый слайд">
               <span><!-- css input --></span>
           </label>
-          <label class="slider__nav-item" aria-label="Открыть второй слайд">
-              <input type="radio" name="slider" data-slider-number="2">
+          
+          <label class="slider__nav-item" for="slider-2" aria-label="Открыть второй слайд">
               <span><!-- css input --></span>
           </label>
-          <label class="slider__nav-item" aria-label="Открыть третий слайд">
-              <input type="radio" name="slider" data-slider-number="3">
+
+          <label class="slider__nav-item" for="slider-3" aria-label="Открыть третий слайд">
               <span><!-- css input --></span>
           </label>
+
           </div>
 
 
