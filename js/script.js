@@ -89,16 +89,19 @@ function closeModal(evt, modal) {
 
 // MAIN
 function init() {
-  switch (document.location.pathname) {
-    case '/catalog.html':
-      initCatalogHTML()
+  var pn = document.location.pathname;
+  switch (true) {
+    case (pn.search('/catalog.html') !== -1) :
+      initCatalogHTML();
       break;
-    case '/index.html':
+    case (pn.search('/index.html') !== -1):
     case '/':
-        initIndexHTML()
+        initIndexHTML();
     break;
   }
 }
+
+
 
 /**
  * @description init js only in /catalog.html by init()
