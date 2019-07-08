@@ -33,25 +33,7 @@ function checkIsIEEleven() {
 }
 var isIEElevenVariable = checkIsIEEleven();
 
-/* SLIDER CONTROLLER  */
-function setSliderFrame(evt) {
-  var target = evt.target;
-  var firstNodeOfSlider = document.getElementsByClassName('slider__item')[0];
 
-  // if target !== input[type=radio,data-slider-number="1"]
-  if (!target.classList.contains('slider__nav-item') && !target.dataset.sliderNumber) {
-    return;
-  }
-
-
-  firstNodeOfSlider.style.marginLeft = '-' + (target.dataset.sliderNumber -1) * 1160 + 'px';
-}
-
-/* SERVICES CONTROLLER */
-function setServiceSlider(evt, activeClassName) {
-  evt.target.classList.add(activeClassName);
-  firstServiceDescription.style.marginLeft = '-' + evt.target.dataset.counter * servicesStepPixels + 'px';
-}
 
 function clearActiveClass(items, activeClassName) {
   for (var i = 0; i < items.length; i++) {
@@ -140,30 +122,94 @@ function initCatalogHTML() {
  */
 function initIndexHTML() {
 
-  document
-    .getElementsByClassName('slider__nav')[0]
-    .addEventListener('click', setSliderFrame);
+  /* SLIDER CONTROLLER  */
 
+  var sliderNav = document.querySelector('.slider__nav');
+  var activeSlider = 
+  sliderNav
+    .querySelector('input[checked]')
+    .dataset['sliderNumber'] 
+      - 1;
+  setActiveLinkForSliderElement(activeSlider);
+
+  function setSliderFrame(evt) {
+    var target = evt.target;
+
+    // if target !== input[type=radio,data-slider-number="1"]
+    if (!target.classList.contains('slider__nav-item') && !target.dataset.sliderNumber) {
+      return;
+    }
+
+    activeSlider = target.dataset.sliderNumber - 1;
+    setActiveLinkForSliderElement(activeSlider)
+
+
+    var firstNodeOfSlider = document.getElementsByClassName('slider__item')[0];  
+
+    firstNodeOfSlider.style.marginLeft = '-' + (activeSlider) * 1160 + 'px';
+  }
+
+  function setActiveLinkForSliderElement(activeSlider) {
+    // disable button in non active slider
+    var sliderItems = document.querySelectorAll('.slider__item');
+
+    for (var j = 0; j < sliderItems.length; j++) {
+      var sliderLink = sliderItems[j].querySelector('.slider__more');
+      if (activeSlider === j) {
+        sliderLink.setAttribute('href', 'catalog.html');
+        continue; // SKIP
+      }; 
+      
+      sliderLink.removeAttribute('href');
+    }
+  }
+
+  sliderNav.addEventListener('click', setSliderFrame);
+  
+  /* END SLIDER CONTROLLER */
+
+
+  /* SERVICES CONTROLLER */
   var activeClassName = 'services__item_active';
   var serviceItems = document.getElementsByClassName('services__item');
 
+  function setServiceSlider(evt, activeClassName) {
+    evt.target.classList.add(activeClassName);
+    firstServiceDescription.style.marginLeft = '-' + evt.target.dataset.counter * servicesStepPixels + 'px';
+  }
+  
+  function disableServiceButton(target) {
+    if (!target) {
+      target = document.querySelector('.services__item_active'); 
+    }
+    
+    target.setAttribute('disabled', true);
+  }
+
+  function enableAllServiceButtons() {
+    [].forEach.call(serviceItems, function(item) {
+      item.removeAttribute('disabled');
+    })
+  }
+
+  enableAllServiceButtons();
+  disableServiceButton();
+
 
   /* MODAL MAP NODES */
-  var mapPopup =      document.querySelector('.modal_map-popup');
-  var mapButtonOpen = document.querySelector('.information__map-link');
-  var mapButtonClose = mapPopup.querySelector('.modal__close');
+  var mapPopup        = document.querySelector('.modal_map-popup');
+  var mapButtonOpen   = document.querySelector('.information__map-link');
+  var mapButtonClose  = mapPopup.querySelector('.modal__close');
   
   /* MODAL FORM NODES */
-  var formPopup =       document.querySelector('.modal_wrtite-us');
-  var formButtonOpen =  document.querySelector('.information__write-us-button');
+  var formPopup       = document.querySelector('.modal_wrtite-us');
+  var formButtonOpen  = document.querySelector('.information__write-us-button');
   var formButtonClose = formPopup.querySelector('.modal__close');
-  var formButtonSend = formPopup.querySelector('.btn');
-  var formInputs = formPopup.querySelectorAll('input');
-  var formFirstInput = formInputs[0];
+  var formButtonSend  = formPopup.querySelector('.btn');
+  var formInputs      = formPopup.querySelectorAll('input');
+  var formFirstInput  = formInputs[0];
   var formSecondInput = formInputs[1];
  
-
-  //console.log(formPopup.querySelector('input'))
 
   /* EVENTS */
 
@@ -186,12 +232,10 @@ function initIndexHTML() {
   /* SERVICES events */
   for (var i = 0; i < serviceItems.length; i++) {
     serviceItems[i].addEventListener('click', function(evt) {
-
-      [].forEach.call(serviceItems, function(item) {
-        item.removeAttribute('disabled');
-      })
-
-      evt.target.setAttribute('disabled', true);
+      // remove attribute disable on all buttons
+      enableAllServiceButtons();
+      // add [disable] for active button
+      disableServiceButton(evt.target)
       
       clearActiveClass(serviceItems, activeClassName)
       setServiceSlider(evt, activeClassName)
@@ -204,6 +248,8 @@ function initIndexHTML() {
     evt.preventDefault();
     
     mapPopup.classList.add(modalClassActive);
+    // set focus on close
+    document.querySelector('.modal_map-popup .modal__close').focus();
   })
   //     CLOSE
   mapButtonClose.addEventListener('click', function (evt) {    
@@ -272,7 +318,6 @@ function initIndexHTML() {
       closeAllPopups([formPopup, mapPopup])
     }
   });
-
 }
 
 if (document.readyState !== 'loading') {
